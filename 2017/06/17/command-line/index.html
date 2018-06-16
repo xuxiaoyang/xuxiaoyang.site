@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mac command命令," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="man命令查看所有命令的使用指南 command line命令规则1.对于大小写敏感，对于文件必须包含扩展名;2.文件绝对路径以”/“开头；相对路径什么也不写,如:”usr/local”;3.~表示当前用户目录;转义用”\“反斜杠(“空格，括号，引号，[]，!，$，&amp;amp;，*，;，|，\”需要转义);4.mac系统卷由正斜杠/表示;其他卷在volumes文件夹中;5.Tab complete功">
+<meta name="keywords" content="mac command命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="command-line">
+<meta property="og:url" content="http://xuxiaoyang.site/2017/06/17/command-line/index.html">
+<meta property="og:site_name" content="小羊咩呀咩">
+<meta property="og:description" content="man命令查看所有命令的使用指南 command line命令规则1.对于大小写敏感，对于文件必须包含扩展名;2.文件绝对路径以”/“开头；相对路径什么也不写,如:”usr/local”;3.~表示当前用户目录;转义用”\“反斜杠(“空格，括号，引号，[]，!，$，&amp;amp;，*，;，|，\”需要转义);4.mac系统卷由正斜杠/表示;其他卷在volumes文件夹中;5.Tab complete功">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-16T05:40:02.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="command-line">
+<meta name="twitter:description" content="man命令查看所有命令的使用指南 command line命令规则1.对于大小写敏感，对于文件必须包含扩展名;2.文件绝对路径以”/“开头；相对路径什么也不写,如:”usr/local”;3.~表示当前用户目录;转义用”\“反斜杠(“空格，括号，引号，[]，!，$，&amp;amp;，*，;，|，\”需要转义);4.mac系统卷由正斜杠/表示;其他卷在volumes文件夹中;5.Tab complete功">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuxiaoyang.site/2017/06/17/command-line/"/>
+
+
+
+
+
+  <title>command-line | 小羊咩呀咩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小羊咩呀咩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/06/17/command-line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小羊咩呀咩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">command-line</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-17T09:36:39+08:00">
+                2017-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mac/" itemprop="url" rel="index">
+                    <span itemprop="name">mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/17/command-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/17/command-line/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="man命令"><a href="#man命令" class="headerlink" title="man命令"></a>man命令</h3><p>查看所有命令的使用指南</p>
+<h3 id="command-line命令规则"><a href="#command-line命令规则" class="headerlink" title="command line命令规则"></a>command line命令规则</h3><p>1.对于大小写敏感，对于文件必须包含扩展名;<br>2.文件绝对路径以”/“开头；相对路径什么也不写,如:”usr/local”;<br>3.~表示当前用户目录;转义用”\“反斜杠(“空格，括号，引号，[]，!，$，&amp;，*，;，|，\”需要转义);<br>4.mac系统卷由正斜杠/表示;其他卷在volumes文件夹中;<br>5.Tab complete功能查询补足目录;</p>
+<a id="more"></a>
+<h3 id="目录切换命令"><a href="#目录切换命令" class="headerlink" title="目录切换命令"></a>目录切换命令</h3><p>切换到其他目录或路径三个命令:cd、pwd、ls;<br>1.cd “change directory”切换到指定目录;<br>2.pwd “print working directory”显示当前目录绝对路径;<br>3.ls”list directory contents”列出当前目录下的内容;</p>
+<h3 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h3><p>1.利用”-a”选项;<br>2.”ls -la” “ls-lA”不显示”.”和”..”两个文件; “-l”是控制输出格式;</p>
+<h3 id="comman-line管理文件命令"><a href="#comman-line管理文件命令" class="headerlink" title="comman-line管理文件命令"></a>comman-line管理文件命令</h3><p>1.cat 命令“concatenate” 按顺序读取文件并输出到Terminal窗口;可以通过\&lt;\&lt;命令来增加文本文件的内容;”cat text1.txt \&lt;\&lt; text2.txt”;把文本文件text2的内容增加到了text1的末尾;<br>2.less适合查看长文件,和man命令一样的操作方式;<br>3.which定位某个命令的文件路径;<br>4.find根据搜索关键词定位文件路径,find后接搜索的起始路径,定义搜索的选项,搜索内容包含在引号里,find不使用spotlight服务,可以使用通配符*？[];</p>
+<h3 id="递归命令"><a href="#递归命令" class="headerlink" title="递归命令"></a>递归命令</h3><p>1.使用递归命令”-r/-R”;可以允许命令不执行一个特定文件,而是指定路径下的所有文件;</p>
+<h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>1.mkdir “make directory” 创建文件夹;<br>2.cp “copy” 把文件从一处复制到另一处 cp后接原始路径、目标路径;<br>3.mv “move”用来移动文件 后接原路径+新路径 新文件名就成了重命名命令;<br>4.rm “remove”永久删除文件命令 后接文件路径 如果希望安全删除文件，可以使用srm命令;<br>5.rmdir “remove directory”永久删除文件夹，但无法删除包含其他文件的文件夹 rm -R命令删除文件夹以及包含的所有文件;</p>
+<h3 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h3><p>1.vi 可视化文本编辑器;<br>2.nano更加现代的编辑器;<br>3.按A进入编辑模式 ESC键退出编辑器 按住shift按两次Z保存退出，不想保存直接退出 :quit！</p>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p>1.su命令来切换用户 “substitute user identity” 后接用户名 可以用who -m来验证登录身份<br>2.sudo “super user do”用sudo执行一个命令会使用root权限。若忘记使用sudo,sudo！！可以用sudo来执行上一条指令<br>3.如果你是一个管理员用户,你需要执行很多条需要root 权限的命令,你可以临时切换整个命令行shell来取得root 级别的访问权限。方法就是先输入’sudo -s’，回车后再键入你的密码。</p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><p>1.ctrl +C 可以终止一个错误或者发疯的命令<br>2.ctrl+L清屏<br>3.history命令查看历史记录</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mac-command命令/" rel="tag"># mac command命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/16/TFIDF/" rel="next" title="使用R语言计算一组关键词的TFIDF值">
+                <i class="fa fa-chevron-left"></i> 使用R语言计算一组关键词的TFIDF值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/18/VFP-command/" rel="prev" title="VFP数据处理常用的命令">
+                VFP数据处理常用的命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="XiaoYang" />
+            
+              <p class="site-author-name" itemprop="name">XiaoYang</p>
+              <p class="site-description motion-element" itemprop="description">Code & Life</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuxiaoyang519@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xuxiaoyang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/slittleyang" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/YangNote" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#man命令"><span class="nav-number">1.</span> <span class="nav-text">man命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command-line命令规则"><span class="nav-number">2.</span> <span class="nav-text">command line命令规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录切换命令"><span class="nav-number">3.</span> <span class="nav-text">目录切换命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示隐藏文件"><span class="nav-number">4.</span> <span class="nav-text">显示隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comman-line管理文件命令"><span class="nav-number">5.</span> <span class="nav-text">comman-line管理文件命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归命令"><span class="nav-number">6.</span> <span class="nav-text">递归命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑文件和文件夹"><span class="nav-number">7.</span> <span class="nav-text">编辑文件和文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本编辑器"><span class="nav-number">8.</span> <span class="nav-text">文本编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户"><span class="nav-number">9.</span> <span class="nav-text">切换用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他命令"><span class="nav-number">10.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoYang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://xuxiaoyang-site.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://xuxiaoyang.site/2017/06/17/command-line/';
+          this.page.identifier = '2017/06/17/command-line/';
+          this.page.title = 'command-line';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

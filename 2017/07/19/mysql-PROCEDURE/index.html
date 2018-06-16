@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SQL MySQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
+<meta name="keywords" content="SQL MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL存储过程">
+<meta property="og:url" content="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/index.html">
+<meta property="og:site_name" content="小羊咩呀咩">
+<meta property="og:description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-16T05:44:37.412Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL存储过程">
+<meta name="twitter:description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/"/>
+
+
+
+
+
+  <title>MySQL存储过程 | 小羊咩呀咩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小羊咩呀咩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小羊咩呀咩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL存储过程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T13:09:50+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/19/mysql-PROCEDURE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/19/mysql-PROCEDURE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是存储过程？"><a href="#什么是存储过程？" class="headerlink" title="什么是存储过程？"></a>什么是存储过程？</h3><p>SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率<br>存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。<br>存储过程三个优点：<br>增强SQL语句的功能和灵活性<br>较快的执行速度<br>减少网络流量</p>
+<a id="more"></a>
+<h3 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">CREATE</span><br><span class="line">[DEFINER= &#123;user|CURRENT_USER&#125;]</span><br><span class="line">PROCEDURE  sp_name(proc_parameter[,...])</span><br><span class="line">[characteristic...]routine_body</span><br><span class="line"></span><br><span class="line">proc_parameter:</span><br><span class="line">[IN|OUT|INOUT] para_name type</span><br><span class="line"></span><br><span class="line">IN表示该参数的值必须在调用存储过程中指定（传递值给存储过程）</span><br><span class="line">OUT表示该参数值可以被存储过程改变，并且可以返回。（从存储过程返回值）</span><br><span class="line">INOUT表示该参数在调用时指定，并且可以被指定和返回。</span><br><span class="line">characteristic特性：</span><br><span class="line">COMMENT &apos;string&apos;|&#123;CONTAINS SQL|NO SQL|READS SQL DATA |MODIFIES SQL DATA&#125;|SQL SECURITY&#123;DEFINER|INVOKER&#125;</span><br><span class="line">COMMNET 注释</span><br><span class="line">CONTAINS SQL：包含SQL语句，但不包含读或写数据的语句</span><br><span class="line">NO SQL：不包含SQL语句</span><br><span class="line">READS SQL DATA：包含读数据的语句</span><br><span class="line">MODIFIES SQL DATA：包含写数据的语句</span><br><span class="line">SQL SECURITY&#123;DEFINER|INVOKER&#125;指明谁有权限来执行</span><br><span class="line">``` </span><br><span class="line">### 过程体</span><br><span class="line">过程体由合法的SQL语句构成</span><br><span class="line">过程体可以是任意SQL语句</span><br><span class="line">过程体如果是复合结构（包含两个及以上的语句）则使用BEGIN…END语句。</span><br><span class="line">复合结构内可以包含声明、循环以及控制结构。</span><br><span class="line">``` bash</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE  sp1() SELECT VERSION();</span><br></pre></td></tr></table></figure>
+<h3 id="创建不带参数的存储过程"><a href="#创建不带参数的存储过程" class="headerlink" title="创建不带参数的存储过程"></a>创建不带参数的存储过程</h3><p>显示MySQL版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">    -&gt; CREATE DEFINER=`root`@`localhost` PROCEDURE `sp1`()</span><br><span class="line">    -&gt; SELECT VERSION()// /*显示MySQL版本*/ </span><br><span class="line">    -&gt; DELIMITER ;</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建带有IN参数的存储过程"><a href="#创建带有IN参数的存储过程" class="headerlink" title="创建带有IN参数的存储过程"></a>创建带有IN参数的存储过程</h3><p>从数据表删除指定记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE removeUserById(IN p_id INT UNSIGNIED)</span><br><span class="line">    -&gt; BEGIN</span><br><span class="line">    -&gt; DELETE FROM TEST WHERE id=p_id;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 创建INOUT类型的存储过程</span></span><br><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE RemoveUserAndReturnUserNums(IN p_id INT UNSIGNED,OUT nums INT UNSIGNED)</span><br><span class="line">    -&gt; BEGIN</span><br><span class="line">    -&gt; DELETE FROM TEST WHERE id=p_id;</span><br><span class="line">    -&gt; SELECT COUNT(ID) FROM TEST INTO NUMS;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">$ mysql&gt; DELIMITER;</span><br><span class="line">$ mysql&gt; CALL RemoveUserAndReturnUserNums(1,@nums);</span><br><span class="line">@nums为用户变量与，MySQL客户端绑定，只对当前用户客户端有效。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建带多个OUT类型参数的存储过程</span></span><br><span class="line">SELECT ROW_COUNT();返回前一个SQL进行UPDATE、DELETE、INSERT操作所影响的行数。</span><br><span class="line">``` bash</span><br><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE RemoveUsersByAgeAndReturnInfos(IN p_id INT UNSIGNED,OUT DeleteUsers SMALLINT UNSIGNED,OUT UserCounts SMALLINT UNSIGNED)</span><br><span class="line">    -&gt; BEGIN                                                                        </span><br><span class="line">    -&gt; DELETE FROM <span class="built_in">test</span> WHERE id =p_id;                                            </span><br><span class="line">    -&gt; SELECT ROW_COUNT() INTO DeleteUsers;</span><br><span class="line">    -&gt; SELECT COUNT(id) from <span class="built_in">test</span> INTO UserCounts;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">$ mysql&gt; DELIMITER ;</span><br><span class="line">$ mysql&gt; CALL RemoveUsersByAgeAndReturnInfos(8,@a,@b);</span><br></pre></td></tr></table></figure></p>
+<h3 id="调用存储过程"><a href="#调用存储过程" class="headerlink" title="调用存储过程"></a>调用存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CALL sp_name([parameter[,...]])</span><br><span class="line">CALL sp_name[()]</span><br></pre></td></tr></table></figure>
+<h3 id="修改存储过程"><a href="#修改存储过程" class="headerlink" title="修改存储过程"></a>修改存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER PROCEDURE sp_name[characteristic...]</span><br><span class="line">COMMENT &apos;string&apos;</span><br><span class="line">|&#123;CONTAINS SQL|NO SQL|READS SQL DATA |MODIFIES SQL DATA&#125;|SQL SECURITY&#123;DEFINER|INVOKER&#125;</span><br></pre></td></tr></table></figure>
+<p>修改存储过程只能修改注释以及当前内容类型，不能修改过程体。<br>若要修改过程体，只能先删除存储过程再创建存储过程。</p>
+<h3 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE [IF EXISTS] sp_name</span><br></pre></td></tr></table></figure>
+<h3 id="存储过程与自定义函数的区别"><a href="#存储过程与自定义函数的区别" class="headerlink" title="存储过程与自定义函数的区别"></a>存储过程与自定义函数的区别</h3><p>存储过程实现的功能更加复杂，函数针对性更强<br>存储过程可以返回多个值，自定义函数只能返回一个值<br>存储过程一般独立来执行，自定义函数可以作为其他SQL语句的组成部分来出现。<br>实际应用过程中很少使用函数，但是经常会把复杂的过程封装成存储过程。使用程序调用API相对于存储过程来说比较慢，可以把经常用的操作封装成存储过程。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL-MySQL/" rel="tag"># SQL MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/07/mysql-defined-function/" rel="next" title="MySQL自定义函数">
+                <i class="fa fa-chevron-left"></i> MySQL自定义函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/29/database-design/" rel="prev" title="数据库设计那些事">
+                数据库设计那些事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="XiaoYang" />
+            
+              <p class="site-author-name" itemprop="name">XiaoYang</p>
+              <p class="site-description motion-element" itemprop="description">Code & Life</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuxiaoyang519@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xuxiaoyang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/slittleyang" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/YangNote" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是存储过程？"><span class="nav-number">1.</span> <span class="nav-text">什么是存储过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">2.</span> <span class="nav-text">创建存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建不带参数的存储过程"><span class="nav-number">3.</span> <span class="nav-text">创建不带参数的存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建带有IN参数的存储过程"><span class="nav-number">4.</span> <span class="nav-text">创建带有IN参数的存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">5.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改存储过程"><span class="nav-number">6.</span> <span class="nav-text">修改存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">7.</span> <span class="nav-text">删除存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储过程与自定义函数的区别"><span class="nav-number">8.</span> <span class="nav-text">存储过程与自定义函数的区别</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoYang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://xuxiaoyang-site.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/';
+          this.page.identifier = '2017/07/19/mysql-PROCEDURE/';
+          this.page.title = 'MySQL存储过程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

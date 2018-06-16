@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库 DataBase," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是数据库设计？数据库设计就像建设大楼的过程，整体结构设计-图纸-施工。数据库设计就是根据业务系统的具体需要，结合需用的DBMS数据库管理系统，为这个业务构造出最优的数据存储模型，并建立好数据库中表的结构以及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。">
+<meta name="keywords" content="数据库 DataBase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库设计那些事">
+<meta property="og:url" content="http://xuxiaoyang.site/2017/07/29/database-design/index.html">
+<meta property="og:site_name" content="小羊咩呀咩">
+<meta property="og:description" content="什么是数据库设计？数据库设计就像建设大楼的过程，整体结构设计-图纸-施工。数据库设计就是根据业务系统的具体需要，结合需用的DBMS数据库管理系统，为这个业务构造出最优的数据存储模型，并建立好数据库中表的结构以及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-16T05:39:03.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库设计那些事">
+<meta name="twitter:description" content="什么是数据库设计？数据库设计就像建设大楼的过程，整体结构设计-图纸-施工。数据库设计就是根据业务系统的具体需要，结合需用的DBMS数据库管理系统，为这个业务构造出最优的数据存储模型，并建立好数据库中表的结构以及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuxiaoyang.site/2017/07/29/database-design/"/>
+
+
+
+
+
+  <title>数据库设计那些事 | 小羊咩呀咩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小羊咩呀咩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/07/29/database-design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小羊咩呀咩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库设计那些事</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T10:18:42+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/29/database-design/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/29/database-design/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是数据库设计？"><a href="#什么是数据库设计？" class="headerlink" title="什么是数据库设计？"></a>什么是数据库设计？</h3><p>数据库设计就像建设大楼的过程，整体结构设计-图纸-施工。<br>数据库设计就是根据业务系统的具体需要，结合需用的DBMS数据库管理系统，为这个业务构造出最优的数据存储模型，并建立好数据库中表的结构以及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。</p>
+<a id="more"></a>
+<h3 id="为什么要数据库设计？"><a href="#为什么要数据库设计？" class="headerlink" title="为什么要数据库设计？"></a>为什么要数据库设计？</h3><p>减少数据冗余，避免数据维护异常，节约存储空间，高效的访问。</p>
+<h3 id="数据库设计步骤"><a href="#数据库设计步骤" class="headerlink" title="数据库设计步骤"></a>数据库设计步骤</h3><p>数据库设计步骤：需求分析→逻辑设计→物理设计→维护优化</p>
+<h4 id="数据库需求分析"><a href="#数据库需求分析" class="headerlink" title="数据库需求分析"></a>数据库需求分析</h4><p>数据是什么？数据有哪些属性？数据和属性各自的特点都有什么？<br>需求分析了解的问题<br>1.了解所要存储的数据<br>2.数据的存储特点<br>3.数据的生命周期<br>时效性比较短的数据要定期清理或者归档。<br>增长速度快、量大的非核心数据先定好数据库的归档和清理规则。<br>要搞清楚的问题：<br>1.实体与实体之间的关系 1对1 1对多 多对多<br>2.实体所包含的属性<br>3.哪些属性或属性的组合可以唯一标识一个实体<br>实体与数据库中的表的关系：可能一个实体对应一个表，也可能多个实体对应一个表。</p>
+<h4 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h4><p>ER图工具对数据库进行逻辑建模<br>需求转换为数据库的逻辑模型<br>ER图对逻辑模型进行展示（与所选DBMS无关）。<br>操作异常：插入异常，删除异常，更新异常<br>插入异常：某实体随另一个实体的存在而存在，缺少某个实体时无法表示这个实体。<br>更新异常：更改表锁定所对应的某个实体的单独属性时，需要多行更新。<br>删除异常：删除表的某一行来反映实体实例失效时，导致另一个实体实例信息丢失。<br>数据冗余：指相同的数据在多个地方存在，或者说表中的某个列可以由其它列计算得到。数据冗余容易造成数据表维护的困难。<br>数据库设计范式：第一范式、第二范式、第三范式以及BC范式。<br>第一范式:数据库表中的所有字段都是单一属性，单一属性数据类型是基本数据类型。即第一范式要求数据库中的表都是二维表<br>第二范式:在第一范式基础上，非关键字段不能对候选关键字段部分函数依赖（组合关键字中的某一关键字决定非关键字），即所有单关键字段都符合第二范式。<br>第三范式:在第二范式基础上定义的，非关键字段不能对任意候选关键字段有传递依赖。<br>BC范式:复合关键字之间不能存在函数依赖关系。</p>
+<h4 id="物理设计"><a href="#物理设计" class="headerlink" title="物理设计"></a>物理设计</h4><p>考虑使用的数据库管理系统DBMS是什么？根据选择的DBMS特点把逻辑设计转化成物理设计。</p>
+<h5 id="选择合适的DBMS"><a href="#选择合适的DBMS" class="headerlink" title="选择合适的DBMS"></a>选择合适的DBMS</h5><h5 id="定义数据库、表及字段的命名规范"><a href="#定义数据库、表及字段的命名规范" class="headerlink" title="定义数据库、表及字段的命名规范"></a>定义数据库、表及字段的命名规范</h5><p>所有对象命名应该遵循的原则：<br>（1）可读性原则。使用大写和小写来格式化库对象名字。<br>（2）表意性原则。对象的名字能够描述所标识的对象。<br>（3）长名原则。尽可能少使用和不使用缩写。</p>
+<h5 id="根据选择的DBMS选择合适的字段类型"><a href="#根据选择的DBMS选择合适的字段类型" class="headerlink" title="根据选择的DBMS选择合适的字段类型"></a>根据选择的DBMS选择合适的字段类型</h5><p>字段类型选择原则：列的数据类型一方面影响数据存储的空间开销，另一方面也影响数据查询的性能。当一个列可以选择多种数据类型时，应该优先考虑数字类型，其次是日期或者二进制类型，最后是字符类型。对于相同级别的数据类型，应该优先选择占用空间小的数据类型。<br>列类型    存储空间<br>TINYINT    1字节<br>SMALLINT    2字节<br>MEDIUMINT    3字节<br>INT    4字节<br>BIGINT    8字节<br>DATE    3字节<br>DATETIME    8字节<br>TIMESTAMP    4字节<br>CHAR(M)    M字节，1=&lt;M&lt;=255<br>VARCHAR(M)    L+1字节，L&lt;=M,1=&lt;M&lt;=255<br>以上规则从两个角度考虑：<br>（1）在对数据进行比较（查询条件、join、排序）时，同样的数据字符处理比数字处理要慢。<br>（2）在数据库中，数据处理以页为单位，列长度越小，每页存储的数据越多，页数越少，有利于性能提升。<br>Char 和Varchar如何选择：<br>（1）如果列中存储的数据长度差不多一直，应该采用char，否则考虑varchar<br>（2）如果列中最大数据长度小于50Byte，一般考虑char。如果该列很少用，基于节省空间和较少I/O考虑还是可以选用varchar的。<br>（3）一般不宜定义大于50Byte的char类型。utf8每个字符占3个字节，15个字符以上用varchar。</p>
+<h5 id="反范式化设计"><a href="#反范式化设计" class="headerlink" title="反范式化设计"></a>反范式化设计</h5><p>数据表中增加冗余,达到效率的提升，以空间换时间。为了性能和读取效率的考虑，适当对第三范式的要求进行违反，允许存在少量的数据冗余。换句话说，反范式化就是用空间来换时间。好处是减少了表关联的数量，增加数据读取的效率，但反范式化一定要适度。</p>
+<h5 id="decimal和float如何选择："><a href="#decimal和float如何选择：" class="headerlink" title="decimal和float如何选择："></a>decimal和float如何选择：</h5><p>（1）decimal用于存储精确数据，float用于存储非精确数据。<br>（2）由于float的存储空间开销小于decimal，故非精确数据有限选择float类型。</p>
+<h5 id="时间类型如何存储："><a href="#时间类型如何存储：" class="headerlink" title="时间类型如何存储："></a>时间类型如何存储：</h5><p>如果很少被使用，使用INT类存储；否则经常查询使用的话，使用datetime类型来存储。</p>
+<h5 id="如何选择主键？"><a href="#如何选择主键？" class="headerlink" title="如何选择主键？"></a>如何选择主键？</h5><p>区分也业务主键和数据库主键。业务主键用于标识业务数据，进行表与表之间的关联。数据库主键为了优化数据存储。一般情况下，业务主键与数据库主键相同，有时也不同。INNODB引擎的数据库要求每个表都有一个主键，按照主键的顺序进行逻辑存储，没有主键会自动生成6个字节的隐含主键，最好主键是顺序增长的。主键的字段类型所占的空间尽可能小，每页存储的主键越多，对性能越好。<br>高并发的互联网网站避免使用外键，触发器以及预留字段。相关联的列上一定要建立索引。</p>
+<h4 id="维护优化"><a href="#维护优化" class="headerlink" title="维护优化"></a>维护优化</h4><p>根据新的需求进行建表，索引优化以及大表拆分。优化工作中继续按照上述三步进行优化设计、建表工作。<br>（1）维护数据字典 加comment注释，然后命令导出数据字典.<br>（2）维护索引。如何选择合适的列建立索引?出现在WHERE从句、GROUP BY、ORDER BY从句中的列。可选择性高的列放在索引前面。索引中不要包括太长的数据类型。MySQL支持前置性索引的，对Text类型数据的前16个字节索引。注意：索引不是越多越好，过多的索引不但降低写的效率而且会降低读的效率；要定期维护索引碎片；在SQL语句中不要使用强制索引关键字。<br>（3）维护表结构。同时对数据字典进行维护并控制表的宽度的大小（数据表字段过大考虑垂直拆分）。数据库中适合批量操作，在数据库查询时少使用SELECT * 语句，控制用户使用自定义函数，不要使用数据库中的全文索引，最好使用搜索引擎工具来代替完成。<br>（4）在适当时候对表进行水平拆分或者垂直拆分。经常一起查询的列放在一起，text、blob等大字段拆分出都附加表中。如果一张大表数据量达到上亿行，可能需要水平拆分（把一张表分成多份），通过主键Hash方式进行。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库-DataBase/" rel="tag"># 数据库 DataBase</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/19/mysql-PROCEDURE/" rel="next" title="MySQL存储过程">
+                <i class="fa fa-chevron-left"></i> MySQL存储过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/01/mysql-dictionary/" rel="prev" title="MySQL导出数据字典">
+                MySQL导出数据字典 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="XiaoYang" />
+            
+              <p class="site-author-name" itemprop="name">XiaoYang</p>
+              <p class="site-description motion-element" itemprop="description">Code & Life</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuxiaoyang519@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xuxiaoyang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/slittleyang" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/YangNote" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是数据库设计？"><span class="nav-number">1.</span> <span class="nav-text">什么是数据库设计？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要数据库设计？"><span class="nav-number">2.</span> <span class="nav-text">为什么要数据库设计？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库设计步骤"><span class="nav-number">3.</span> <span class="nav-text">数据库设计步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库需求分析"><span class="nav-number">3.1.</span> <span class="nav-text">数据库需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑设计"><span class="nav-number">3.2.</span> <span class="nav-text">逻辑设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#物理设计"><span class="nav-number">3.3.</span> <span class="nav-text">物理设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选择合适的DBMS"><span class="nav-number">3.3.1.</span> <span class="nav-text">选择合适的DBMS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定义数据库、表及字段的命名规范"><span class="nav-number">3.3.2.</span> <span class="nav-text">定义数据库、表及字段的命名规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据选择的DBMS选择合适的字段类型"><span class="nav-number">3.3.3.</span> <span class="nav-text">根据选择的DBMS选择合适的字段类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反范式化设计"><span class="nav-number">3.3.4.</span> <span class="nav-text">反范式化设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#decimal和float如何选择："><span class="nav-number">3.3.5.</span> <span class="nav-text">decimal和float如何选择：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间类型如何存储："><span class="nav-number">3.3.6.</span> <span class="nav-text">时间类型如何存储：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何选择主键？"><span class="nav-number">3.3.7.</span> <span class="nav-text">如何选择主键？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#维护优化"><span class="nav-number">3.4.</span> <span class="nav-text">维护优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoYang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://xuxiaoyang-site.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://xuxiaoyang.site/2017/07/29/database-design/';
+          this.page.identifier = '2017/07/29/database-design/';
+          this.page.title = '数据库设计那些事';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
