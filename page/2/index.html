@@ -263,6 +263,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/06/25/SQL-group-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小羊咩呀咩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/25/SQL-group-search/" itemprop="url">SQL分组查询与组合查询</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T13:50:32+08:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/25/SQL-group-search/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/25/SQL-group-search/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.SOUNDEX()函数：将一个任何文本串转换为描述其语音表示的字母数字模式的语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT  name from Customers Where SOUNDEX(name)=SOUNDEX(&apos;Michael&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>2.GROUP BY子句中的每一列都必须是检索列或者有效的表达式，不能是聚集函数。必须出现在WHERE语句之后，ORDER BY语句之前。<br>3.HAVING过滤分组，WHERE过滤行，HAVING支持所有WHERE操作符。WHERE在分组前进行过滤，HAVING在分组后进行过滤。<br>4.子查询作为做查询的SELECT语句只能查询单个列，若企图检索多个列将返回错误。<br>5.关系表就是把信息分解成多个表，一类数据一个表，各表通过某些共同的值相互关联，所以才叫关系型数据库。<br>6.组合查询UNION默认从查询结果集中自动去除了重复的行。如果想返回所有的匹配行，使用UNION ALL。UNION几乎可以完成与多个WHERE条件相同的工作。如果确实需要每个条件匹配行都出现（包括重复行），就必须使用UNION ALL而不是WHERE。<br>7.对组合查询结果进行排序，只能只用一条ORDER BY子句，且必须位于最后一条SELECT语句之后。虽然OEDER BY子句似乎只是最后一条SELECT 语句的组成部分，但实际上DBMS将用它来排序所有SELECT语句返回的所有结果。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/06/21/vfp-to-mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -937,7 +1091,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -959,7 +1113,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
