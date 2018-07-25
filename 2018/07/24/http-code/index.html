@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="HTTP状态码," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="快速排序的基本思想是:1．先从数列中取出一个数作为基准数。2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。3．再对左右区间重复第二步，直到各区间只有一个数  概括起来就是”挖坑填数，分二治之”。">
-<meta name="keywords" content="javascript">
+<meta name="description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
+<meta name="keywords" content="HTTP状态码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js快速排序">
-<meta property="og:url" content="http://xuxiaoyang.site/2018/02/11/js-quickSort/index.html">
+<meta property="og:title" content="服务器返回的状态码">
+<meta property="og:url" content="http://xuxiaoyang.site/2018/07/24/http-code/index.html">
 <meta property="og:site_name" content="小羊咩呀咩">
-<meta property="og:description" content="快速排序的基本思想是:1．先从数列中取出一个数作为基准数。2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。3．再对左右区间重复第二步，直到各区间只有一个数  概括起来就是”挖坑填数，分二治之”。">
+<meta property="og:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T03:16:24.031Z">
+<meta property="og:updated_time" content="2018-07-24T09:11:50.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js快速排序">
-<meta name="twitter:description" content="快速排序的基本思想是:1．先从数列中取出一个数作为基准数。2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。3．再对左右区间重复第二步，直到各区间只有一个数  概括起来就是”挖坑填数，分二治之”。">
+<meta name="twitter:title" content="服务器返回的状态码">
+<meta name="twitter:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://xuxiaoyang.site/2018/02/11/js-quickSort/"/>
+  <link rel="canonical" href="http://xuxiaoyang.site/2018/07/24/http-code/"/>
 
 
 
 
 
-  <title>js快速排序 | 小羊咩呀咩</title>
+  <title>服务器返回的状态码 | 小羊咩呀咩</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2018/02/11/js-quickSort/">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2018/07/24/http-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoYang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js快速排序</h1>
+          <h1 class="post-title" itemprop="name headline">服务器返回的状态码</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-11T09:59:54+08:00">
-                2018-02-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T16:12:44+08:00">
+                2018-07-24
               </time>
             
 
@@ -333,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/11/js-quickSort/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/24/http-code/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/11/js-quickSort/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/24/http-code/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,9 +363,38 @@
       
 
       
-        <h3 id="快速排序的基本思想是"><a href="#快速排序的基本思想是" class="headerlink" title="快速排序的基本思想是:"></a>快速排序的基本思想是:</h3><blockquote><p>1．先从数列中取出一个数作为基准数。<br>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。<br>3．再对左右区间重复第二步，直到各区间只有一个数</p>
-</blockquote>
-<p>概括起来就是”挖坑填数，分二治之”。<br><a id="more"></a><br>因为网上具体讲解快速排序的思路的博客很多，这里废话不多说，直接上代码。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">arr,low,high</span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> i = low;<span class="comment">//数组第一个元素的索引</span></span><br><span class="line">	<span class="keyword">var</span> j = high;<span class="comment">//数组最后个元素的索引，arr.length-1</span></span><br><span class="line">	<span class="keyword">var</span> x = arr[i];</span><br><span class="line">	<span class="keyword">if</span>(i&gt;=j) <span class="keyword">return</span> arr;</span><br><span class="line">	<span class="comment">//挖坑填数</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">		<span class="keyword">for</span>(;j&gt;i;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[j]&lt;=x)&#123;</span><br><span class="line">				arr[i]=arr[j];</span><br><span class="line">				i++;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(;j&gt;i;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[i]&gt;=x)&#123;</span><br><span class="line">				arr[j]=arr[i];</span><br><span class="line">				j--;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	arr[i] = x;</span><br><span class="line">	<span class="comment">//分二置之</span></span><br><span class="line">	QuickSort(arr,low,i<span class="number">-1</span>);</span><br><span class="line">	QuickSort(arr,i+<span class="number">1</span>,high);</span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="关于状态码"><a href="#关于状态码" class="headerlink" title="关于状态码"></a>关于状态码</h3><p>用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。<br>状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。</p>
+<ul>
+<li>1XX 信息性状态码（Information） 服务器正在处理请求</li>
+<li>2XX 成功状态码 （Success） 请求已经正常处理完毕</li>
+<li>3XX 重定向状态码 (Redirection) 需要进行额外操作来完成请求</li>
+<li>4XX 客户端错误状态码 (Client Error) 客户端原因导致服务器无法处理请求</li>
+<li>5XX 服务器错误状态码 (Server Error) 服务器原因导致处理请求出错</li>
+</ul>
+<a id="more"></a>
+<p>根据后两位数字的不同，在5类的基础上进行细分。RFC2616（用来指定HTTP协议标准的文档）标准定义的HTTP状态码有四十多种，但是常见且具有代表性的共有14种，其中2XX（成功）3个，3XX（重定向）5个,4XX(客户端错误)4个，5XX(服务器错误)2个。</p>
+<h4 id="2XX成功"><a href="#2XX成功" class="headerlink" title="2XX成功"></a>2XX成功</h4><ol>
+<li>200 OK. 表示请求被服务器正常处理。</li>
+<li>204 No Content. 表示请求已经被成功处理，但是没有内容返回。一般用在只是客户端向服务器发送信息，而服务器不用向客户端返回什么信息的情况。这种情况浏览器页面不会更新。</li>
+<li>206 Partial Content.表示服务器已经完成了部分GET请求（客户端进行了范围请求）。</li>
+</ol>
+<h4 id="3XX重定向"><a href="#3XX重定向" class="headerlink" title="3XX重定向"></a>3XX重定向</h4><ol start="4">
+<li>301 Moved Permanently.永久重定向，表示请求的资源已经永久的搬到了其他位置，即资源已经被分配了新的URI，新的URI应该提示在响应报文的Location首部字段，只要不是HEAD请求，响应实体应该包含新URI的超链接和简短的说明。</li>
+<li>302 Found.临时重定向，表示请求的资源临时搬到了其他位置。请求的资源暂时被配到到了新的URI。</li>
+<li>303 See Other. 表示请求资源存在另一个URI，应使用GET定向获取请求资源。</li>
+<li>304 Not Modified. 表示客户端发送附带条件的请求（GET方法请求报文中的IF…）时，条件不满足。虽然304被划分在3XX，但和重定向一毛钱关系都没有</li>
+<li>307 Temporary Redirect.临时重定向,与302含义相同，区别是307会遵照标准，不会从POST变为GET。</li>
+</ol>
+<h4 id="4XX客户端错误"><a href="#4XX客户端错误" class="headerlink" title="4XX客户端错误"></a>4XX客户端错误</h4><ol start="9">
+<li>400 Bad Request. 表示请求报文存在语法错误或参数错误，服务器不理解。</li>
+<li>401 Unauthorized. 表示发送的请求需要HTTP认证信息或者认证失败。</li>
+<li>403 Forbidden. 表示对请求资源的访问被服务器拒绝了。</li>
+<li>404 Not Found.表示服务器找不到你请求的资源。也有可能服务器就是不想给你然后骗你找不到。</li>
+</ol>
+<h4 id="5XX服务器错误"><a href="#5XX服务器错误" class="headerlink" title="5XX服务器错误"></a>5XX服务器错误</h4><ol start="13">
+<li>500 Internal Server Error. 表示服务器执行请求的时候出错了,可能是Web应用有bug或临时故障,更有可能是服务器源代码有bug…</li>
+<li>503 Service Unavailable.表示服务器超负载或正停机维护，无法处理请求。</li>
+</ol>
 
       
     </div>
@@ -383,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
+            <a href="/tags/HTTP状态码/" rel="tag"># HTTP状态码</a>
           
         </div>
       
@@ -396,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/26/csv-into-mysql/" rel="next" title="csv文本格式数据导入MySQL的方法">
-                <i class="fa fa-chevron-left"></i> csv文本格式数据导入MySQL的方法
+              <a href="/2018/02/13/BFC/" rel="next" title="深入理解BFC">
+                <i class="fa fa-chevron-left"></i> 深入理解BFC
               </a>
             
           </div>
@@ -405,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/13/BFC/" rel="prev" title="深入理解BFC">
-                深入理解BFC <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -582,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的基本思想是"><span class="nav-number">1.</span> <span class="nav-text">快速排序的基本思想是:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于状态码"><span class="nav-number">1.</span> <span class="nav-text">关于状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2XX成功"><span class="nav-number">1.1.</span> <span class="nav-text">2XX成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3XX重定向"><span class="nav-number">1.2.</span> <span class="nav-text">3XX重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4XX客户端错误"><span class="nav-number">1.3.</span> <span class="nav-text">4XX客户端错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5XX服务器错误"><span class="nav-number">1.4.</span> <span class="nav-text">5XX服务器错误</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -746,9 +771,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://xuxiaoyang.site/2018/02/11/js-quickSort/';
-          this.page.identifier = '2018/02/11/js-quickSort/';
-          this.page.title = 'js快速排序';
+          this.page.url = 'http://xuxiaoyang.site/2018/07/24/http-code/';
+          this.page.identifier = '2018/07/24/http-code/';
+          this.page.title = '服务器返回的状态码';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
