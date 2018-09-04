@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务器返回的状态码">
 <meta property="og:url" content="http://xuxiaoyang.site/2018/07/24/http-code/index.html">
-<meta property="og:site_name" content="小羊咩呀咩">
+<meta property="og:site_name" content="小羊">
 <meta property="og:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-24T09:11:50.810Z">
+<meta property="og:updated_time" content="2018-07-25T07:01:16.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器返回的状态码">
 <meta name="twitter:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
@@ -98,9 +98,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -126,7 +126,7 @@
 
 
 
-  <title>服务器返回的状态码 | 小羊咩呀咩</title>
+  <title>服务器返回的状态码 | 小羊</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小羊咩呀咩</span>
+        <span class="site-title">小羊</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -184,27 +184,21 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
+            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -214,19 +208,15 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
+            关于
           </a>
         </li>
       
@@ -268,11 +258,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小羊咩呀咩">
+      <meta itemprop="name" content="小羊">
     </span>
 
     
@@ -328,17 +318,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/24/http-code/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/24/http-code/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -373,25 +352,25 @@
 </ul>
 <a id="more"></a>
 <p>根据后两位数字的不同，在5类的基础上进行细分。RFC2616（用来指定HTTP协议标准的文档）标准定义的HTTP状态码有四十多种，但是常见且具有代表性的共有14种，其中2XX（成功）3个，3XX（重定向）5个,4XX(客户端错误)4个，5XX(服务器错误)2个。</p>
-<h4 id="2XX成功"><a href="#2XX成功" class="headerlink" title="2XX成功"></a>2XX成功</h4><ol>
+<h3 id="2XX成功"><a href="#2XX成功" class="headerlink" title="2XX成功"></a>2XX成功</h3><ol>
 <li>200 OK. 表示请求被服务器正常处理。</li>
 <li>204 No Content. 表示请求已经被成功处理，但是没有内容返回。一般用在只是客户端向服务器发送信息，而服务器不用向客户端返回什么信息的情况。这种情况浏览器页面不会更新。</li>
 <li>206 Partial Content.表示服务器已经完成了部分GET请求（客户端进行了范围请求）。</li>
 </ol>
-<h4 id="3XX重定向"><a href="#3XX重定向" class="headerlink" title="3XX重定向"></a>3XX重定向</h4><ol start="4">
+<h3 id="3XX重定向"><a href="#3XX重定向" class="headerlink" title="3XX重定向"></a>3XX重定向</h3><ol start="4">
 <li>301 Moved Permanently.永久重定向，表示请求的资源已经永久的搬到了其他位置，即资源已经被分配了新的URI，新的URI应该提示在响应报文的Location首部字段，只要不是HEAD请求，响应实体应该包含新URI的超链接和简短的说明。</li>
 <li>302 Found.临时重定向，表示请求的资源临时搬到了其他位置。请求的资源暂时被配到到了新的URI。</li>
 <li>303 See Other. 表示请求资源存在另一个URI，应使用GET定向获取请求资源。</li>
 <li>304 Not Modified. 表示客户端发送附带条件的请求（GET方法请求报文中的IF…）时，条件不满足。虽然304被划分在3XX，但和重定向一毛钱关系都没有</li>
 <li>307 Temporary Redirect.临时重定向,与302含义相同，区别是307会遵照标准，不会从POST变为GET。</li>
 </ol>
-<h4 id="4XX客户端错误"><a href="#4XX客户端错误" class="headerlink" title="4XX客户端错误"></a>4XX客户端错误</h4><ol start="9">
+<h3 id="4XX客户端错误"><a href="#4XX客户端错误" class="headerlink" title="4XX客户端错误"></a>4XX客户端错误</h3><ol start="9">
 <li>400 Bad Request. 表示请求报文存在语法错误或参数错误，服务器不理解。</li>
 <li>401 Unauthorized. 表示发送的请求需要HTTP认证信息或者认证失败。</li>
 <li>403 Forbidden. 表示对请求资源的访问被服务器拒绝了。</li>
 <li>404 Not Found.表示服务器找不到你请求的资源。也有可能服务器就是不想给你然后骗你找不到。</li>
 </ol>
-<h4 id="5XX服务器错误"><a href="#5XX服务器错误" class="headerlink" title="5XX服务器错误"></a>5XX服务器错误</h4><ol start="13">
+<h3 id="5XX服务器错误"><a href="#5XX服务器错误" class="headerlink" title="5XX服务器错误"></a>5XX服务器错误</h3><ol start="13">
 <li>500 Internal Server Error. 表示服务器执行请求的时候出错了,可能是Web应用有bug或临时故障,更有可能是服务器源代码有bug…</li>
 <li>503 Service Unavailable.表示服务器超负载或正停机维护，无法处理请求。</li>
 </ol>
@@ -463,16 +442,6 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
 
 
 
@@ -510,7 +479,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
+                src="/images/avatar.jpeg"
                 alt="XiaoYang" />
             
               <p class="site-author-name" itemprop="name">XiaoYang</p>
@@ -607,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于状态码"><span class="nav-number">1.</span> <span class="nav-text">关于状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2XX成功"><span class="nav-number">1.1.</span> <span class="nav-text">2XX成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3XX重定向"><span class="nav-number">1.2.</span> <span class="nav-text">3XX重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4XX客户端错误"><span class="nav-number">1.3.</span> <span class="nav-text">4XX客户端错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5XX服务器错误"><span class="nav-number">1.4.</span> <span class="nav-text">5XX服务器错误</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于状态码"><span class="nav-number">1.</span> <span class="nav-text">关于状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2XX成功"><span class="nav-number">2.</span> <span class="nav-text">2XX成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3XX重定向"><span class="nav-number">3.</span> <span class="nav-text">3XX重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4XX客户端错误"><span class="nav-number">4.</span> <span class="nav-text">4XX客户端错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5XX服务器错误"><span class="nav-number">5.</span> <span class="nav-text">5XX服务器错误</span></a></li></ol></div>
             
 
           </div>
@@ -739,13 +708,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
@@ -764,26 +726,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://xuxiaoyang-site.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://xuxiaoyang.site/2018/07/24/http-code/';
-          this.page.identifier = '2018/07/24/http-code/';
-          this.page.title = '服务器返回的状态码';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -796,6 +738,10 @@
   
 
 
+
+
+
+  
 
 
 

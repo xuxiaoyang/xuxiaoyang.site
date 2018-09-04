@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库设计那些事">
 <meta property="og:url" content="http://xuxiaoyang.site/2017/07/29/database-design/index.html">
-<meta property="og:site_name" content="小羊咩呀咩">
+<meta property="og:site_name" content="小羊">
 <meta property="og:description" content="什么是数据库设计？数据库设计就像建设大楼的过程，整体结构设计-图纸-施工。数据库设计就是根据业务系统的具体需要，结合需用的DBMS数据库管理系统，为这个业务构造出最优的数据存储模型，并建立好数据库中表的结构以及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-07-11T03:09:09.310Z">
@@ -98,9 +98,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -126,7 +126,7 @@
 
 
 
-  <title>数据库设计那些事 | 小羊咩呀咩</title>
+  <title>数据库设计那些事 | 小羊</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小羊咩呀咩</span>
+        <span class="site-title">小羊</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -184,27 +184,21 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
+            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -214,19 +208,15 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
+            关于
           </a>
         </li>
       
@@ -268,11 +258,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小羊咩呀咩">
+      <meta itemprop="name" content="小羊">
     </span>
 
     
@@ -327,17 +317,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/29/database-design/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/29/database-design/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -449,16 +428,6 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
 
 
 
@@ -496,7 +465,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
+                src="/images/avatar.jpeg"
                 alt="XiaoYang" />
             
               <p class="site-author-name" itemprop="name">XiaoYang</p>
@@ -725,13 +694,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
@@ -750,26 +712,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://xuxiaoyang-site.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://xuxiaoyang.site/2017/07/29/database-design/';
-          this.page.identifier = '2017/07/29/database-design/';
-          this.page.title = '数据库设计那些事';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://xuxiaoyang-site.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -782,6 +724,10 @@
   
 
 
+
+
+
+  
 
 
 
