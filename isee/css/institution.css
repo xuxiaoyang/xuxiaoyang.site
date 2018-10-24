@@ -1,0 +1,111 @@
+body{
+	font-size: 0.9rem;
+}
+.sidebar-sticky{
+	position: -webkit-sticky;
+	position:sticky;
+	top: 50px;
+}
+.sidebar-border{
+	height: calc(100vh - 64px);
+	border-right:1px solid rgba(0,0,0,0.1);
+	/* border-left:1px solid rgba(0,0,0,0.1); */
+	padding: 0px;
+}
+/* 模块导航列表 */
+
+#function-list>li {
+	border:none;
+	margin:6px 0 0 0;
+	font-size:0.8rem;
+}
+#function-list>li :first-of-type{
+	margin: 0;
+}
+#function-list>li:hover{
+	background-color: #0073AB;
+	color:#fff;
+	cursor: pointer;
+}
+.model-active{
+	background-color: #0073AB;
+	color:#fff;
+}
+
+/* 机构列表 */
+#leader-board{
+	font-size:0.8rem;
+	margin: 6px 0 0 0;
+	height: calc(100vh - 64px);
+	overflow-y: auto;	
+}
+#leader-board>table>tbody{
+	cursor: pointer;
+}
+.tableClick{
+	background-color:#0073AB;
+	color:white;
+}
+/* 画布区域 */
+#canvas{
+	height:calc(100vh - 64px);
+	/* width: 100%; */
+	cursor:pointer;
+	overflow-y: auto;
+}
+
+
+/* 雷达图样式 */
+.webs polygon,.lines line {
+	fill:white;
+	fill-opacity: 0.5;
+	stroke:gray;
+	stroke-opacity: 0.15;
+	stroke-dasharray: 4 4;
+	stroke-width:1.4;
+} 
+.texts text{
+	font-size:0.8rem;;
+	text-anchor: middle;
+}
+.radar polygon {
+	fill-opacity: 0.5;
+	stroke-width: 2;
+}
+.tooltip{
+	position: absolute;
+	font-size: 12px;
+	text-align: center;
+	background-color:white;
+	border-radius:3px;
+	box-shadow: rgb(174, 174, 174) 0px 0px 10px;
+	cursor: pointer;
+	display: inline-block;
+}
+.tooltip>div{
+    padding:10px;
+	height:30px;
+}
+.polygon{
+	fill:transparent;
+	/* stroke:#0073AB; */
+}
+.circles{
+	fill:transparent;
+    stroke:transparent;
+    stroke-width:20;
+}
+.points{
+	fill-opacity: 0.5;
+}
+.lines{
+	stroke:black;
+	stroke-width: 1px;
+	fill:none;
+}
+.worldMap{
+	fill: #fff;
+	stroke-width: 0.6;
+	stroke:gray;
+	stroke-opacity: 1;
+}
