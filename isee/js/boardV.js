@@ -408,7 +408,7 @@ function listenTableClick(dataset,option,type){
             $(e.target).parent().siblings().removeClass('tableClick');
             $('.row >div:nth-of-type(2)').removeClass('d-block');
             $('.row >div:nth-of-type(3)').removeClass('d-block');
-            $('.drawer-toggle').css('left','0');
+            $('.row').hasClass('drawer-open')?$('.row').removeClass('drawer-open'):$('.row').addClass('drawer-open');
             let td = $(e.target).parent().children();
             let univName = (td.length ===1)? td.html():(td.length===2)? td.eq(1).html():'';
             let indexData = dataset.filter(data=> data[0] === univName);

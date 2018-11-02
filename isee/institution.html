@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<title>ISEE-机构评价</title>
-	<link rel="icon" href="./images/favicon.svg" type="image/x-icon" />
-	<link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
+	<link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/institution.css">
@@ -92,7 +92,8 @@
 		$('.drawer-toggle').on('click',()=>{
 			$('.row >div:nth-of-type(2)').toggleClass('d-block');
 			$('.row >div:nth-of-type(3)').toggleClass('d-block');
-			$('.row').toggleClass('drawer-open');
+			
+			$('.row').hasClass('drawer-open')?$('.row').removeClass('drawer-open'):$('.row').addClass('drawer-open');
 			
 		});
 	</script>
