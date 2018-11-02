@@ -10,6 +10,31 @@ window.onload = function (){
 }
 //提示框
 let tooltip = createTooltip();
+//tooltip显示
+function tipVisible(textContent){
+    tooltip.transition()
+                .duration(400)
+                .style('opacity', 0.9)
+                .style('display','block');
+    tooltip.html(textContent)
+                .style('left',(d3.event.pageX+15)+'px')
+                .style('top',(d3.event.pageY+15)+'px');
+}
+//tooltip隐藏
+function tipHidden(){
+    tooltip.transition()		
+    .duration(400)		
+    .style('opacity', 0)
+    .style('display','none');	  
+}
+//创建tooltip
+function createTooltip(){
+    return d3.select('body')
+        .append('div')
+        .classed('tooltip', true)
+        .style('opacity', 0)
+        .style('display', 'none');
+}
 let optionInfo = {
     industryUniversity:{
         url:'./data/industryUniversity.csv',
@@ -61,10 +86,11 @@ let optionInfo = {
             // 绘制基础坐标图
             let orgin ={x:0.5,y:2.176};//坐标原点
             let title ={xTitle:'2012-2016年学科产出论文占全球份额（单位%）',yTitle:'学科论文被引频次增长率（2012-2016年相比于2007-2011年)'};
-            let scale = matrixBase(maxMinData,orgin,title);
+            let sideLength = (width>height)?height:width;
+            let scale = matrixBase(maxMinData,orgin,title,sideLength);
             let xScale = scale.xScale;
             let yScale = scale.yScale;
-            let option ={orgin,title,xScale,yScale};
+            let option ={orgin,title,xScale,yScale,sideLength};
             listenTableClick(dataset,option,'paperMatrix'); 
         }
     },
@@ -81,10 +107,11 @@ let optionInfo = {
             // 绘制基础坐标图
             let orgin ={x:1000,y:2};//坐标原点
             let title ={xTitle:'2012-2016年学科产出专利数量',yTitle:'被引频次增长率（2012-2016年相比于2007-2011年)'};
-            let scale = matrixBase(maxMinData,orgin,title);
+            let sideLength = (width>height)?height:width;
+            let scale = matrixBase(maxMinData,orgin,title,sideLength);
             let xScale = scale.xScale;
             let yScale = scale.yScale;
-            let option ={orgin,title,xScale,yScale};
+            let option ={orgin,title,xScale,yScale,sideLength};
             listenTableClick(dataset,option,'paperMatrix');
         }
 
@@ -107,7 +134,7 @@ let optionInfo = {
     },
     worldMap:{
         url:'./data/worldMap.csv',
-        name:'高校论文国际合作地图',
+        name:'中国高校论文国际合作地图',
         format(d){
             return d;
         },
@@ -136,7 +163,7 @@ let optionInfo = {
             let title ={xTitle:'EI论文数',yTitle:'德温特专利数',zTitle:'与上市公司的关联强度'};
             let radius = 3*((width>height)?height:width)/8;
             let option={title,radius};
-            let th = '<thead><tr><th>序</th><th>高校名称</th></tr></thead><tbody></tbody>';
+            let th = '<thead><tr><th>序</th><th>医院名称</th></tr></thead><tbody></tbody>';
             createBoard(dataset,th);
             drawBubble(dataset,option);
             listenTableClick(dataset,option,'medicalWork');
@@ -174,28 +201,12 @@ function donutChart(data,max,innerRadius,outerRadius,color,type){
         .style('stroke','gray')
         .each(function(){this._current = {startAngle: 0, endAngle: 0}; })
         .on('mouseover',function(){
-            d3.select(this)
-            .transition()
-            .duration(300)
-            .style('fill-opacity',1)
-            tooltip.transition()
-                .duration(400)
-                .style('opacity', 0.9)
-                .style('display','block');
-            tooltip.html(`<div>${type}:${data}</div><div>占排行榜内${type}最大值的${percent}</div>`)
-                .style('left',(d3.event.pageX+15)+'px')
-                .style('top',(d3.event.pageY+15)+'px');
+            d3.select(this).transition().duration(300).style('fill-opacity',1);
+            tipVisible( `<div>${type}:${data}</div><div>占排行榜内${type}最大值的${percent}</div>`);
         })
         .on('mouseout',function(){
-            d3.select(this)
-            .transition()
-            .duration(300)
-            .style('fill-opacity',0.8);
-            tooltip.transition()		
-            .duration(400)		
-            .style('opacity', 0)
-            .attr('height',60)
-            .style('display','none');	
+            d3.select(this).transition().duration(300).style('fill-opacity',0.8);
+            tipHidden();
         })
         .transition()
         .duration(400)
@@ -261,24 +272,15 @@ function drawBubble(dataset,option){
             .duration(300)
             .style('fill-opacity',1)
             .attr('r',d=>zScale(d[2])+1);
-            tooltip.transition()
-                .duration(400)
-                .style('opacity', 0.9)
-                .style('display','block');
-            tooltip.html(`<div>${d[0]}</div><div>x:${d[1]}, y:${d[3]}, r:${d[2]}</div>`)
-                .style('left',(d3.event.pageX+15)+'px')
-                .style('top',(d3.event.pageY+15)+'px');
+            tipVisible(`<div>${d[0]}</div><div>x:${d[1]}, y:${d[3]}, r:${d[2]}</div>`);
         })
-        .on("mouseout", function() {		
-            tooltip.transition()		
-                .duration(400)		
-                .style('opacity', 0)
-                .style('display','none');	
+        .on("mouseout", function() {			
             d3.select(this)
             .transition()
             .duration(300)
             .attr('r',d=>zScale(d[2]))
-            .style('fill-opacity',0.5)
+            .style('fill-opacity',0.5);
+            tipHidden();
         })
         .transition()
         .duration(400)
@@ -303,11 +305,17 @@ function drawBarChart(dataset){
         .enter()
         .append('rect')
         .attr('height',16)
-        .attr('width',d=>scale(d[1]))
+        .attr('width',0)
+        .style('fill','transparent')
         .attr('x',0)
         .attr('y',(d,i)=>(i*24)+8)
-        .style('fill',getColor(0))
         .attr('transform',`translate(${-width/4},${-height/2})`)
+        .transition()
+        .duration(500)
+        .ease(d3.easeBackOut)
+        .attr('width',d=>scale(d[1]))
+        .style('fill',getColor(0))
+        
    let texts = barChart.append('g').classed('texts',true)
    texts.selectAll('text')
         .data(dataset)
@@ -325,13 +333,18 @@ function drawBarChart(dataset){
         .data(dataset)
         .enter()
         .append('text')
-        .text(d=>d[1])
-        .attr('x',d=>scale(d[1]))
+        .attr('x',0)
         .attr('y',(d,i)=>(i*24)+8)
         .attr('dy',12)
         .attr('dx',6)
         .style('text-anchor','start')
-        .attr('transform',`translate(${-width/4},${-height/2})`);
+        .attr('transform',`translate(${-width/4},${-height/2})`)
+        .transition()
+        .duration(500)
+        .ease(d3.easeBackOut)
+        .text(d=>d[1])
+        .attr('x',d=>scale(d[1]));
+        
     let barHeight = index.length*24+8;
     svg.attr('height',barHeight);
 }
@@ -361,6 +374,7 @@ function drawBarChart(dataset){
 function emptySvgTable(){
     $('#leader-board>table').empty();
     $('.main').empty();
+    $('defs').remove();
 }
 // 获取高校名称
 function getUnivData(dataset){
@@ -388,9 +402,13 @@ function listenTableClick(dataset,option,type){
    
     // 祖先元素代理
     $('#leader-board > table').click(e=>{
+        
         if($(e.target).parent().get(0).tagName.toLowerCase() === 'tr' && e.target.tagName.toLowerCase() !=='th'){
             $(e.target).parent().addClass('tableClick');
             $(e.target).parent().siblings().removeClass('tableClick');
+            $('.row >div:nth-of-type(2)').removeClass('d-block');
+            $('.row >div:nth-of-type(3)').removeClass('d-block');
+            $('.drawer-toggle').css('left','0');
             let td = $(e.target).parent().children();
             let univName = (td.length ===1)? td.html():(td.length===2)? td.eq(1).html():'';
             let indexData = dataset.filter(data=> data[0] === univName);
@@ -401,7 +419,6 @@ function listenTableClick(dataset,option,type){
     
 }
 function draw(indexData,option,type,dataset){
-    
     switch(type){
         case 'industryUniversity':
             drawRadar(indexData,option,getMaxMinData(dataset))
@@ -479,28 +496,19 @@ function drawWorldMap(indexData,option){
                 .transition()
                 .duration(300)
                 .style('fill',getColor(1));
-            tooltip.transition()
-                .duration(500)
-                .style('opacity', 0.9)
-                .style('display','block');
-                tooltip.html(`<div>${d.properties.name}</div><div>合作次数:${indexData[column.indexOf(d.properties.name)]}</div>`)
-                .style('left',(d3.event.pageX+10)+'px')
-                .style('top',(d3.event.pageY+10)+'px');
+                tipVisible(`<div>${d.properties.name}</div><div>合作次数:${indexData[column.indexOf(d.properties.name)]}</div>`);
         })
         .on('mouseout',function(d){
             d3.select(this)
                 .transition()
                 .duration(300)
                 .style('fill',indexData[column.indexOf(d.properties.name)]>0?color(indexData[column.indexOf(d.properties.name)]):d3.rgb(255,255,255));
-            tooltip.transition()		
-                .duration(500)		
-                .style('opacity', 0)
-                .style('display','none');	
+            tipHidden();
 
         })
         .transition()
-        .duration(400)
-        .ease(d3.easeCircleInOut)
+        .duration(500)
+        .ease(d3.easeLinear)
         .style('fill',d=>{  
             let index = column.indexOf(d.properties.name);
             return indexData[index]>0?color(indexData[index]):d3.rgb(255,255,255);
@@ -516,11 +524,11 @@ function addMapLegend(startColor,endColor){
                         .attr('y1','0%')
                         .attr('x2','0%')
                         .attr('y2','100%')
-    let stop1 = linearGradient.append('stop')
+    linearGradient.append('stop')
                     .attr('offset','0%')
                     .style('stop-color',endColor.toString())
                     .style('stop-opacity','1');
-    let stop2 = linearGradient.append('stop')
+    linearGradient.append('stop')
                     .attr('offset','100%')
                     .style('stop-color',startColor.toString())
                     .style('stop-opacity','1');
@@ -549,38 +557,13 @@ function drawScatter(indexData,option,dataset){
     // main.select('.base').attr('transform',d3.zoomIdentity);
     $('.main').remove();
     main = svg.append('g').classed('main',true)
-    matrixBase(getMatrixExtentData(dataset),option.orgin,option.title);
-    let points= main.append('g').classed('points',true)
-    let circle = points.selectAll('circle')
+    matrixBase(getMatrixExtentData(dataset),option.orgin,option.title,option.sideLength);
+    let points= main.append('g').classed('points',true);
+    let t =  d3.transition().duration(300).ease(d3.easeLinear);
+    points.selectAll('circle')
         .data(indexData)
         .enter()
         .append('circle')
-        .on('mouseover',function(d){
-            d3.select(this)
-            .transition()
-            .duration(300)
-            .style('fill-opacity',1)
-            .attr('r',6);
-        tooltip.transition()
-            .duration(500)
-            .style('opacity', 0.9)
-            .style('display','block');
-            tooltip.html(`<div>${d[1]}</div><div>x:${d[2]}, y:${d[3]}</div>`)
-            .style('left',(d3.event.pageX+15)+'px')
-            .style('top',(d3.event.pageY+15)+'px');
-        })
-        .on("mouseout", function() {		
-            tooltip.transition()		
-                .duration(500)		
-                .style('opacity', 0)
-                .style('display','none');	
-            d3.select(this)
-            .transition()
-            .duration(200)
-            .attr('r',5)
-            .style('fill-opacity',0.5)
-        })
-        .attr('r',5)
         .style('fill',d=>{
             if(d[2]>=option.orgin.x && d[3]>=option.orgin.y){
                 return getColor(0);
@@ -595,14 +578,36 @@ function drawScatter(indexData,option,dataset){
                 return getColor(3);
             }
         })
-        .attr('transform',d=>`translate(${option.xScale(d[2])},${option.yScale(d[3])})`); 
+        .attr('r',0)
+        .attr('transform',d=>`translate(${option.xScale(option.orgin.x)},${option.yScale(option.orgin.y)})`)
+        .on('mouseover',function(d){
+            d3.select(this)
+            .transition()
+            .duration(300)
+            .style('fill-opacity',1)
+            .attr('r',6);
+            tipVisible(`<div>${d[1]}</div><div>x:${d[2]}, y:${d[3]}</div>`);
+        })
+        .on("mouseout", function() {		
+            d3.select(this)
+            .transition()
+            .duration(300)
+            .attr('r',5)
+            .style('fill-opacity',0.5);
+            tipHidden();
+        })
+        .transition(t)
+        .attr('r',5)
+        .attr('transform',d=>`translate(${option.xScale(d[2])},${option.yScale(d[3])})`);
+        
+         
         let zoom = d3.zoom().scaleExtent([1/2,6]).on('zoom',zoomed);    
         
         function zoomed(){
             let transform = d3.event.transform;
             
             d3.select('.base').attr('transform',transform);
-            circle.attr('transform',d => `translate(${transform.apply([option.xScale(d[2]),option.yScale(d[3])])})`); 
+            d3.selectAll('circle').attr('transform',d => `translate(${transform.apply([option.xScale(d[2]),option.yScale(d[3])])})`); 
         } 
         main.call(zoom); 
         main.attr('transform',d3.zoomIdentity.translate(width/2,height/2));
@@ -634,23 +639,14 @@ function drawDonutChart(indexdata,option){
         .ease(d3.easeLinear)
         //centroid返回的是弧形的重心与弧心的相对位置
         .attr('transform',d=> `translate(${arc.centroid(d)[0] / 9},${arc.centroid(d)[1] / 9})`);
-        tooltip.transition()
-            .duration(500)
-            .style('opacity', 0.9)
-            .style('display','block');
-            tooltip.html(`<div>跨学科距离${i}</div><div>论文数: ${data.slice(2,7)[i]}</div>`)
-            .style('left',(d3.event.pageX+15)+'px')
-            .style('top',(d3.event.pageY+15)+'px');
+        tipVisible(`<div>跨学科距离${i}</div><div>论文数: ${data.slice(2,7)[i]}</div>`);
     })
     .on('mouseout',function(d,i){
         d3.select(this)
         .transition()
         .duration(500)
         .attr('transform',d=>`translate(0,0)`);
-        tooltip.transition()		
-        .duration(500)		
-        .style('opacity', 0)
-        .style('display','none');
+        tipHidden();
     });
     arcs.transition()
     .duration(500)
@@ -704,14 +700,14 @@ function drawText(data){
 }
 
 //绘制底层矩阵坐标图;
-function matrixBase(maxMinData,orgin,title){
+function matrixBase(maxMinData,orgin,title,sideLength){
     let maxX = maxMinData.maxdata[0];
     let minX = maxMinData.mindata[0];
     let maxY = maxMinData.maxdata[1];
     let minY = maxMinData.mindata[1];
     // 坐标轴线性比例尺
-    let xScale = d3.scaleLinear().domain([minX,maxX]).range([-3*width/8,3*width/8]);
-    let yScale = d3.scaleLinear().domain([maxY,minY]).range([-3*height/8,3*height/8]);
+    let xScale = d3.scaleLinear().domain([minX,maxX]).range([-3*sideLength/8,3*sideLength/8]);
+    let yScale = d3.scaleLinear().domain([maxY,minY]).range([-3*sideLength/8,3*sideLength/8]);
     
     let x = d3.axisBottom(xScale).tickSize(4);
     let y = d3.axisLeft(yScale).tickSize(4);
@@ -720,22 +716,22 @@ function matrixBase(maxMinData,orgin,title){
     base.append('g').classed('axis',true).call(y).attr('transform',`translate(${xScale(orgin.x)},0)`);
     base.append('g').classed('rect',true)
         .append('rect')
-        .attr('width',3*width/4)
-        .attr('height',3*height/4)
+        .attr('width',3*sideLength/4)
+        .attr('height',3*sideLength/4)
         .style("fill", "none")
         .style("pointer-events", "all")
         .style('stroke','black')
-        .attr('transform',`translate(${-3*width/8},${-3*height/8})`)
+        .attr('transform',`translate(${-3*sideLength/8},${-3*sideLength/8})`)
     //添加坐标轴标题
     base.append('g').classed('texts',true)
         .append('text')
         .text(title.xTitle)
-       .attr('transform',`translate(0,${(3*height/8)+15})`)
+       .attr('transform',`translate(0,${(3*sideLength/8)+15})`)
         .style('text-anchor','middle');
     base.append('g').classed('texts',true)
         .append('text')
         .text(title.yTitle)
-        .attr('transform',`translate(-${(3*width/8)+15},0) rotate(-90)`)
+        .attr('transform',`translate(-${(3*sideLength/8)+15},0) rotate(-90)`)
         .style('text-anchor','middle');
     
     return {
@@ -765,14 +761,7 @@ function getMaxMinData(dataset) {
         mindata:mindata
     };
 }
-//绘制tooltip
-function createTooltip(){
-    return d3.select('body')
-        .append('div')
-        .classed('tooltip', true)
-        .style('opacity', 0)
-        .style('display', 'none');
-}
+
 //根据类别数据创建雷达网络上的不规则多边形区域
 function createRadarAreas(canvas){
     let areas = canvas.append('g')
@@ -802,27 +791,12 @@ function drawCircle(canvas,data,indexData){
     .enter()
     .append('circle')
     .on('mouseover',function(d,i){
-        d3.select(this)
-        .transition()
-        .duration(300)
-        .attr('r',6);
-        tooltip.transition()
-            .duration(500)
-            .style('opacity', 0.9)
-            .style('display','block');
-        tooltip.html(`<div>${d.category}</div><div>value : ${indexData[i+1]}</div>`)
-            .style('left',(d3.event.pageX)+'px')
-            .style('top',(d3.event.pageY+30)+'px');
+        d3.select(this).transition().duration(300).attr('r',6);
+        tipVisible(`<div>${d.category}</div><div>value : ${indexData[i+1]}</div>`);
     })
     .on("mouseout", function() {		
-        tooltip.transition()		
-            .duration(500)		
-            .style("opacity", 0)
-            .style('display','none');;	
-        d3.select(this)
-        .transition()
-        .duration(200)
-        .attr('r',4)
+        d3.select(this).transition() .duration(200).attr('r',4)
+        tipHidden();
     })
     .transition()
     .duration(400)

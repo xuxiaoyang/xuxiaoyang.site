@@ -1,27 +1,4 @@
-body{
-	font-size: 0.9rem;
-}
-.sidebar-sticky{
-	position: -webkit-sticky;
-	position:sticky;
-	top: 50px;
-}
-.sidebar-border{
-	height: calc(100vh - 64px);
-	border-right:1px solid rgba(0,0,0,0.1);
-	/* border-left:1px solid rgba(0,0,0,0.1); */
-	padding: 0px;
-}
 /* 模块导航列表 */
-
-#function-list>li {
-	border:none;
-	margin:6px 0 0 0;
-	font-size:0.8rem;
-}
-#function-list>li :first-of-type{
-	margin: 0;
-}
 #function-list>li:hover{
 	background-color: #0073AB;
 	color:#fff;
@@ -31,10 +8,8 @@ body{
 	background-color: #0073AB;
 	color:#fff;
 }
-
 /* 机构列表 */
 #leader-board{
-	font-size:0.8rem;
 	margin: 6px 0 0 0;
 	height: calc(100vh - 64px);
 	overflow-y: auto;	
@@ -53,8 +28,6 @@ body{
 	cursor:pointer;
 	overflow-y: auto;
 }
-
-
 /* 雷达图样式 */
 .webs polygon,.lines line {
 	fill:white;
@@ -65,7 +38,7 @@ body{
 	stroke-width:1.4;
 } 
 .texts text{
-	font-size:0.8rem;;
+	font-size:0.8rem;
 	text-anchor: middle;
 }
 .radar polygon {
@@ -88,7 +61,6 @@ body{
 }
 .polygon{
 	fill:transparent;
-	/* stroke:#0073AB; */
 }
 .circles{
 	fill:transparent;
