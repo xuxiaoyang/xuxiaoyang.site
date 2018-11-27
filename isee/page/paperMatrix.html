@@ -10,20 +10,20 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
 <body class="paperMatrix">
-        <div id="loading">
-                <div class="wrap">
-                    <div class="outer-dot1">
-                        <div class="outer-dot2">
-                            <div class="outer-dot3">
-                                <div class="inner-dot1"></div>
-                                <div class="inner-dot2"></div>
-                            </div>
+    <div id="loading">
+            <div class="wrap">
+                <div class="outer-dot1">
+                    <div class="outer-dot2">
+                        <div class="outer-dot3">
+                            <div class="inner-dot1"></div>
+                            <div class="inner-dot2"></div>
                         </div>
-                        
                     </div>
-                    <p>loading...</p>
+                    
                 </div>
-        </div>
+                <p>loading...</p>
+            </div>
+    </div>
     <header class="navbar">
         <a href="../index.html" class="navbar-brand">
             <img src="../images/logo.svg" alt="logo">
@@ -156,5 +156,11 @@
     </main>
     <script src="../js/d3.min.js"></script>
     <script src="../js/model.js"></script>
+    <script>
+            window.onload = function () {
+                let loading = document.querySelector('#loading').classList;
+                loading.add('hidden');
+            }
+        </script>
 </body>
 </html>
