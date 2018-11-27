@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="823" height="657">
+    <style>
+    .texts text{
+	    font-size:0.8rem;
+	    text-anchor: middle;
+    }
+    </style>
+    <g class="main" transform="translate(411.5,328.5) scale(1)">
+        <g class="arcs">
+            <path d="M1.3577505981296812e-14,-221.7375A221.7375,221.7375,0,1,1,-186.797227026674,-119.47516428695637L-145.28673213185752,-92.92512777874383A172.46249999999998,172.46249999999998,0,1,0,1.0560282429897518e-14,-172.46249999999998Z" style="fill: rgb(24, 144, 255);"></path>
+            <path d="M-6.491377727747434,-221.64246190981933A221.7375,221.7375,0,0,1,-4.3461744262040355e-13,-221.7375L-3.3803578870475825e-13,-172.46249999999998A172.46249999999998,172.46249999999998,0,0,0,-5.048849343803559,-172.388581485415Z" style="fill: rgb(47, 194, 91);"></path>
+            <path d="M-87.37474194883433,-203.79689245821342A221.7375,221.7375,0,0,1,-23.60572334429065,-220.47741093282735L-18.360007045559392,-171.48243072553234A172.46249999999998,172.46249999999998,0,0,0,-67.95813262687113,-158.50869413416598Z" style="fill: rgb(250, 204, 20);"></path>
+            <path d="M-23.60572334429065,-220.47741093282735A221.7375,221.7375,0,0,1,-6.491377727747434,-221.64246190981933L-5.048849343803559,-172.388581485415A172.46249999999998,172.46249999999998,0,0,0,-18.360007045559392,-171.48243072553234Z" style="fill: rgb(34, 50, 115);"></path>
+            <path d="M-186.797227026674,-119.47516428695637A221.7375,221.7375,0,0,1,-87.37474194883433,-203.79689245821342L-67.95813262687113,-158.50869413416598A172.46249999999998,172.46249999999998,0,0,0,-145.28673213185752,-92.92512777874383Z" style="fill: rgb(133, 67, 224);"></path>
+        </g>
+        <g class="legends" height="172.46249999999998" transform="translate(246.375,-86.23124999999999)">
+            <g transform="translate(0,0)">
+                <circle r="4" style="fill: rgb(24, 144, 255);"></circle>
+                <text x="24" y="6" dx="-18" style="fill: rgb(24, 144, 255); font-size: 0.8rem; text-anchor: start;">学科距离0</text>
+            </g>
+            <g transform="translate(0,34.49249999999999)">
+                <circle r="4" style="fill: rgb(47, 194, 91);"></circle>
+                <text x="24" y="6" dx="-18" style="fill: rgb(47, 194, 91); font-size: 0.8rem; text-anchor: start;">学科距离1</text>
+            </g>
+            <g transform="translate(0,68.98499999999999)">
+                <circle r="4" style="fill: rgb(250, 204, 20);"></circle>
+                <text x="24" y="6" dx="-18" style="fill: rgb(250, 204, 20); font-size: 0.8rem; text-anchor: start;">学科距离2</text>
+            </g>
+            <g transform="translate(0,103.47749999999999)">
+                <circle r="4" style="fill: rgb(34, 50, 115);"></circle>
+                <text x="24" y="6" dx="-18" style="fill: rgb(34, 50, 115); font-size: 0.8rem; text-anchor: start;">学科距离3</text>
+            </g>
+            <g transform="translate(0,137.96999999999997)">
+                <circle r="4" style="fill: rgb(133, 67, 224);"></circle>
+                <text x="24" y="6" dx="-18" style="fill: rgb(133, 67, 224); font-size: 0.8rem; text-anchor: start;">学科距离4</text>
+            </g>
+        </g>
+        <g class="texts">
+            <text style="font-size: 1.6rem;">学科融合指数4655</text>
+            <text transform="translate(0,40)">跨学科论文1437篇,占比15.94%</text>
+        </g>
+    </g>
+</svg>

@@ -1,121 +1,137 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-	<meta charset='UTF-8'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width initial-scale=1">
-	<title>ISTIC科学评估之门</title>
-	<link rel="icon" href="./images/favicon.png" type="image/x-icon" sizes="32*32" />
-	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
-    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ISEE</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 </head>
-<body>
-	<header class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top py-0" role="navigation">
-		<a href="index.html" class="navbar-brand py-lg-0 pt-4 pb-3">
-			<img src="./images/logo.svg" alt="logo" height="32">
-		</a>
-		<button type="button" class="navbar-toggler float-right bg-light border-0" data-toggle="collapse" data-target="#main-navbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="main-navbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="./institution.html">机构评价</a></li>
-				<li class="nav-item"><a class="nav-link" href="./institution.html">期刊评价</a></li>
-				<li class="nav-item"><a class="nav-link" href="./institution.html">人才评价</a></li>
-				<li class="nav-item"><a class="nav-link" href="./institution.html">区域评价</a></li>
-				<li class="nav-item"><a class="nav-link" href="./help.html">指南</a></li>
-			</ul>	
-		</div>	
-	</header>
-	<main class="react-content">
-		<div class="banner">
-			<div class="banner-ground"></div>
-			<div class="site-branding">
-				<img src="./images/isee.svg" alt="isee">
-				<div class="btn-panel mt-5">
-					<a href="#function_model_4" class="btn btn-lg btn-index-home m-3 px-4">功能模块</a>
-					<a href="./help.html" class="btn btn-lg btn-index-home m-3 px-4">文档指南</a>
-				</div>
-			</div>
-		</div>
-		<div class="row align-items-center no-gutters my-5 summary-container">
-			<a id="function_model_4"></a>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
-				<a class="card card-style py-4 my-4" href="./institution.html">
-					<h4 class="card-title">机构评价</h4>
-					<img src="images/institution.svg" alt="institution" class="img-fluid mx-auto d-block ">
-					<div class="card-body">
-						<p class="card-text">基于多源数据库，构建指标可视化评价科研机构发展态势</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
-				<a href="./institution.html" class="card card-style py-4 my-4">
-					<h4 class="card-title">期刊评价</h4>
-					<img src="images/journal.svg" alt="journal" class="img-fluid mx-auto d-block">
-					<div class="card-body">	
-						<p class="card-text">基于CSTPCD论文指标数据库，可视化分析评价科技期刊发展态势。</p>
-					</div>
-				</a>	
-			</div>
-			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
-				<a href="./institution.html" class="card card-style py-4 my-4">
-					<h4 class="card-title">人才评价</h4>
-					<img src="images/person.svg" alt="person" class="img-fluid mx-auto d-block">
-					<div class="card-body">
-						<p class="card-text">基于人才数据库，可视化分析评价人才并筛选领域专家。</p>
-					</div>
-				</a>	
-			</div>
-			<div class="col-12  col-sm-6 col-md-6 col-lg-3 px-4">
-				<a href="./institution.html" class="card card-style py-4 my-4">
-					<h4 class="card-title">区域评价</h4>
-					<img src="images/region.svg" alt="region" class="img-fluid mx-auto d-block">
-					<div class="card-body">
-						<p class="card-text">基于CSTPCD论文与引文数据库，可视化分析中国区域基础研究发展。</p>
-					</div>
-					
-				</a>
-			</div>
-		</div>
-	</main>
-	<footer>
-		<p class="text-center middle">Copyright &copy;2018&nbsp&nbsp中国科学技术信息研究所出品</p>
-	</footer>
-	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		function changeNavlight(){
-			$('header').removeClass('bg-transparent');
-			$('header').addClass('bg-light');
-			$('#main-navbar .navbar-nav .nav-link').css('color','#314659');
-			$('.navbar-brand>img').attr('src','./images/logo-black.svg');
-		}
-		function scroll(){
-			
-			let scrollTop  = $(window).scrollTop();
-			if(scrollTop>=10){
-				changeNavlight();
-			}
-			else{
-			$('header').addClass('bg-transparent');
-			$('header').removeClass('bg-light');
-			$('#main-navbar .navbar-nav .nav-link').css('color','#fff');
-			$('.navbar-brand>img').attr('src','./images/logo.svg');
-			}
-			($('#main-navbar').hasClass('show'))?console.log('true'):null;
-			
-		}
-		
-		$(window).on('scroll',()=>scroll());
-		$('button.navbar-toggler').on('click',()=>changeNavlight());
-	</script>
+<body class="home">
+    <header class="navbar">
+        <a href="./index.html" class="navbar-brand">
+            <img src="./images/logo.svg" alt="logo">
+        </a>
+        <!-- <span class="nav-title">ISTIC科学评价之门</span>   -->
+        <button class="navbar-toggler">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+        <nav class="collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="topline"></span>
+                    <a class="nav-link" href="#function-model">
+                        功能模块
+                    </a>
+                    
+                </li>
+                <li class="nav-item">
+                    <span class="topline"></span>
+                    <a class="nav-link" href="./page/help.html">
+                        指南
+                    </a>
+                    
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="banner">
+            <div class="content">
+                <h1>
+                    <strong>ISTIC</strong>
+                    - 科学评价之门
+                </h1>
+                <p>
+                    选取高等院校、医疗机构作为研究对象，以论文、专利数据作为数据源，结合数据可视化技术从科研成果转化、学科发展布局、学科交叉融合、国际合作地图、医工结合、科教协同融合等多方面分析中国科研机构的创新能力。
+                </p>
+                <a href="#function-model" class="btn">
+                    继续了解
+                </a>
+            </div>
+            <div class="logoImage">
+                <div class="logoWrap">
+                    <div class="outer-dot1">
+                        <div class="outer-dot2">
+                            <div class="outer-dot3">
+                                <div class="inner-dot1"></div>
+                                <div class="inner-dot2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            
+        </section>
+        <a id="function-model"></a>
+        <section class="model">
+            <div class="model-item">
+                <a href="./page/industryUniversity.html">
+                    <img src="./images/industry.svg" alt="中国高校产学共创排行榜">
+                    <p>中国高校产学共创排行榜</p>
+                </a>
+            </div>
+            <div class="model-item">
+                <a href="./page/medicalWork.html">
+                    <img src="./images/medical.svg" alt="医疗机构医工结合排行榜">
+                    <p>医疗机构医工结合排行榜</p>
+                </a>
+            </div>
+            <div class="model-item">
+                <a href="./page/paperMatrix.html">
+                    <img src="./images/paperMatrix.svg" alt="中国高校论文产出矩阵">
+                    <p>中国高校论文产出矩阵</p>
+                </a>
+            </div>
+            <div class="model-item">
+                <a href="./page/patentMatrix.html">
+                    <img src="./images/patentMatrix.svg" alt="中国高校专利产出矩阵">
+                    <p>中国高校专利产出矩阵</p>
+                </a>
+            </div>
+            <div class="model-item">
+                <a href="./page/worldMap.html">
+                    <img src="./images/map.svg" alt="中国高校论文国际合作地图">
+                    <p>中国高校论文国际合作地图</p>
+                </a>
+            </div>
+            <div class="model-item">
+                <a href="./page/fushionIndex.html">
+                    <img src="./images/funshion.svg" alt="中国高校学科融合指数">
+                    <p>中国高校学科融合指数</p>
+                </a>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="home-contact">
+                <div class="home-contact-left">
+                    <h5>CONTACT WITH US</h5>
+                    <p>Email&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-envelope"></i>&nbsp;&nbsp;xuxy@istic.ac.cn</p>
+                    <p>Phone&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-phone"></i>&nbsp;010-58882552</p>
+                    <p>Address&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;北京市复兴路15号</p>
+    
+                </div>
+                <div class="home-contact-right">
+                    <p>如果你有课题、项目、科研管理等方面的需求或者有任何的相关建议，可以与我们联系详谈</p>
+                    <a href="mailto:xuxy@istic.ac.cn" class="btn">联系我们</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <footer>
+        <p>&copy;&nbsp;2018&nbsp;&nbsp;中国科学技术信息研究所&nbsp;&nbsp;出品</p>
+    </footer>
+    <script>
+        !function(){
+            let togglerButton = document.querySelector('.navbar-toggler');
+            let navCollapse = document.querySelector('.collapse');
+            togglerButton.addEventListener('click',()=>{
+                navCollapse.classList.toggle('show');
+            });
+        }()   
+    </script>
 </body>
 </html>

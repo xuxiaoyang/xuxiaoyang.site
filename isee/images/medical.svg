@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="823" height="657">
+    <style>
+    .texts text{
+	    font-size:0.8rem;
+	    text-anchor: middle;
+    }
+    </style>
+    <g class="main" transform="translate(411.5,328.5)">
+        <g class="arcs">
+            <path d="M1.3577505981296812e-14,-221.7375A221.7375,221.7375,0,0,1,104.3501578990056,-195.6490824223375L98.55292690461638,-184.77968895442984A209.41875,209.41875,0,0,0,1.2823200093446988e-14,-209.41875Z" style="fill: rgb(24, 144, 255); stroke: gray; fill-opacity: 0.8;"></path>
+            <path d="M104.3501578990056,-195.6490824223375A221.7375,221.7375,0,0,1,1.3577505981296812e-14,221.7375L1.2823200093446988e-14,209.41875A209.41875,209.41875,0,0,0,98.55292690461638,-184.77968895442984Z" style="fill: transparent; stroke: gray; fill-opacity: 0.8;"></path>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,-209.41875)" style="text-anchor: end;">EI论文数</text>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,221.7375)" style="text-anchor: end;">数值:17,占比:15.6%</text>
+        </g>
+        <g class="arcs">
+            <path d="M1.2068894205597167e-14,-197.10000000000002A197.10000000000002,197.10000000000002,0,0,1,197.10000000000002,0L184.78125,0A184.78125,184.78125,0,0,0,1.1314588317747343e-14,-184.78125Z" style="fill: rgb(47, 194, 91); stroke: gray; fill-opacity: 0.8;"></path>
+            <path d="M197.10000000000002,0A197.10000000000002,197.10000000000002,0,0,1,1.2068894205597167e-14,197.10000000000002L1.1314588317747343e-14,184.78125A184.78125,184.78125,0,0,0,184.78125,0Z" style="fill: transparent; stroke: gray; fill-opacity: 0.8;"></path>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,-184.78125)" style="text-anchor: end;">与上市公司的关联强度</text>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,197.10000000000002)" style="text-anchor: end;">数值:12,占比:50.0%</text>
+        </g>
+        <g class="arcs">
+            <path d="M1.0560282429897518e-14,-172.46249999999998A172.46249999999998,172.46249999999998,0,0,1,96.99362046783668,-142.6027752001736L90.06550472013409,-132.41686268587551A160.14375,160.14375,0,0,0,9.805976542047698e-15,-160.14375Z" style="fill: rgb(250, 204, 20); stroke: gray; fill-opacity: 0.8;"></path>
+            <path d="M96.99362046783668,-142.6027752001736A172.46249999999998,172.46249999999998,0,0,1,8.714901778366393e-14,172.46249999999998L8.092408794197367e-14,160.14375A160.14375,160.14375,0,0,0,90.06550472013409,-132.41686268587551Z" style="fill: transparent; stroke: gray; fill-opacity: 0.8;"></path>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,-160.14375)" style="text-anchor: end;">德温特专利数</text>
+        </g>
+        <g class="texts">
+            <text transform="translate(-10,172.46249999999998)" style="text-anchor: end;">数值:231,占比:19.0%</text>
+        </g>
+    </g>
+</svg>

@@ -22,10 +22,10 @@ function tipVisible(textContent){
 }
 //tooltip隐藏
 function tipHidden(){
-    tooltip.transition()		
-    .duration(400)		
+    tooltip.transition()        
+    .duration(400)      
     .style('opacity', 0)
-    .style('display','none');	  
+    .style('display','none');     
 }
 //创建tooltip
 function createTooltip(){
@@ -274,7 +274,7 @@ function drawBubble(dataset,option){
             .attr('r',d=>zScale(d[2])+1);
             tipVisible(`<div>${d[0]}</div><div>x:${d[1]}, y:${d[3]}, r:${d[2]}</div>`);
         })
-        .on("mouseout", function() {			
+        .on("mouseout", function() {            
             d3.select(this)
             .transition()
             .duration(300)
@@ -588,7 +588,7 @@ function drawScatter(indexData,option,dataset){
             .attr('r',6);
             tipVisible(`<div>${d[1]}</div><div>x:${d[2]}, y:${d[3]}</div>`);
         })
-        .on("mouseout", function() {		
+        .on("mouseout", function() {        
             d3.select(this)
             .transition()
             .duration(300)
@@ -794,7 +794,7 @@ function drawCircle(canvas,data,indexData){
         d3.select(this).transition().duration(300).attr('r',6);
         tipVisible(`<div>${d.category}</div><div>value : ${indexData[i+1]}</div>`);
     })
-    .on("mouseout", function() {		
+    .on("mouseout", function() {        
         d3.select(this).transition() .duration(200).attr('r',4)
         tipHidden();
     })

@@ -12,7 +12,8 @@
 #leader-board{
 	margin: 6px 0 0 0;
 	height: calc(100vh - 64px);
-	overflow-y: auto;	
+	overflow-y: auto;
+	-webkit-overflow-scrolling:touch
 }
 #leader-board>table>tbody{
 	cursor: pointer;
@@ -27,6 +28,7 @@
 	/* width: 100%; */
 	cursor:pointer;
 	overflow-y: auto;
+	-webkit-overflow-scrolling:touch
 }
 /* 雷达图样式 */
 .webs polygon,.lines line {

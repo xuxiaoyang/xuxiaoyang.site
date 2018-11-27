@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset='UTF-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<title>ISTIC科学评估之门</title>
+	<link rel="icon" href="./images/favicon.png" type="image/x-icon" sizes="32*32" />
+	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<header class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top py-0" role="navigation">
+		<a href="index.html" class="navbar-brand py-lg-0 pt-4 pb-3">
+			<img src="./images/logo.svg" alt="logo" height="32">
+		</a>
+		<button type="button" class="navbar-toggler float-right bg-light border-0" data-toggle="collapse" data-target="#main-navbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="main-navbar">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="./institution.html">机构评价</a></li>
+				<li class="nav-item"><a class="nav-link" href="./institution.html">期刊评价</a></li>
+				<li class="nav-item"><a class="nav-link" href="./institution.html">人才评价</a></li>
+				<li class="nav-item"><a class="nav-link" href="./institution.html">区域评价</a></li>
+				<li class="nav-item"><a class="nav-link" href="./help.html">指南</a></li>
+			</ul>	
+		</div>	
+	</header>
+	<main class="react-content">
+		<div class="banner">
+			<div class="banner-ground"></div>
+			<div class="site-branding">
+				<img src="./images/isee.svg" alt="isee">
+				<div class="btn-panel mt-5">
+					<a href="#function_model_4" class="btn btn-lg btn-index-home m-3 px-4">功能模块</a>
+					<a href="./help.html" class="btn btn-lg btn-index-home m-3 px-4">文档指南</a>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center no-gutters my-5 summary-container">
+			<a id="function_model_4"></a>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+				<a class="card card-style py-4 my-4" href="./institution.html">
+					<h4 class="card-title">机构评价</h4>
+					<img src="images/institution.svg" alt="institution" class="img-fluid mx-auto d-block ">
+					<div class="card-body">
+						<p class="card-text">基于多源数据库，构建指标可视化评价科研机构发展态势</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+				<a href="./institution.html" class="card card-style py-4 my-4">
+					<h4 class="card-title">期刊评价</h4>
+					<img src="images/journal.svg" alt="journal" class="img-fluid mx-auto d-block">
+					<div class="card-body">	
+						<p class="card-text">基于CSTPCD论文指标数据库，可视化分析评价科技期刊发展态势。</p>
+					</div>
+				</a>	
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-3 px-4">
+				<a href="./institution.html" class="card card-style py-4 my-4">
+					<h4 class="card-title">人才评价</h4>
+					<img src="images/person.svg" alt="person" class="img-fluid mx-auto d-block">
+					<div class="card-body">
+						<p class="card-text">基于人才数据库，可视化分析评价人才并筛选领域专家。</p>
+					</div>
+				</a>	
+			</div>
+			<div class="col-12  col-sm-6 col-md-6 col-lg-3 px-4">
+				<a href="./institution.html" class="card card-style py-4 my-4">
+					<h4 class="card-title">区域评价</h4>
+					<img src="images/region.svg" alt="region" class="img-fluid mx-auto d-block">
+					<div class="card-body">
+						<p class="card-text">基于CSTPCD论文与引文数据库，可视化分析中国区域基础研究发展。</p>
+					</div>
+					
+				</a>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p class="text-center middle">Copyright &copy;2018&nbsp&nbsp中国科学技术信息研究所出品</p>
+	</footer>
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		function changeNavlight(){
+			$('header').removeClass('bg-transparent');
+			$('header').addClass('bg-light');
+			$('#main-navbar .navbar-nav .nav-link').css('color','#314659');
+			$('.navbar-brand>img').attr('src','./images/logo-black.svg');
+		}
+		function scroll(){
+			
+			let scrollTop  = $(window).scrollTop();
+			if(scrollTop>=10){
+				changeNavlight();
+			}
+			else{
+			$('header').addClass('bg-transparent');
+			$('header').removeClass('bg-light');
+			$('#main-navbar .navbar-nav .nav-link').css('color','#fff');
+			$('.navbar-brand>img').attr('src','./images/logo.svg');
+			}
+			($('#main-navbar').hasClass('show'))?console.log('true'):null;
+			
+		}
+		
+		$(window).on('scroll',()=>scroll());
+		$('button.navbar-toggler').on('click',()=>changeNavlight());
+	</script>
+</body>
+</html>
