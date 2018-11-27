@@ -59,6 +59,11 @@
     });
 }();
 
+window.onload= function(){
+    let loading = document.querySelector('#loading').classList;
+    loading.add('hidden');
+}
+
     const canvas = document.getElementById('canvas');//画布
     const modelName = document.querySelector('body').className;//body标签类名,指向功能模块名称
     const univList = document.getElementById('univ-list');//边栏机构列表table
