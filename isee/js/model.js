@@ -121,10 +121,7 @@
             layoutIndex[1].innerHTML = allUnivName.length;
             let indexData = targetUnivIndexData[0];
             let indexContent = indexData.slice(1).map((item, index) => {
-                // let dataColumn2=(dataset.columns[index+2])?dataset.columns[index+2]:'';
-                // let indexD2 = (indexData[index+2])?indexData[index+2]:'';
                 return `<tr><td>${dataset.columns[index + 1]}</td><td>${item}</td></tr>`;
-                // return (index %2 ===0)?`<tr><td>${dataset.columns[index+1]}</td><td>${item}</td><td>${dataColumn2}</td><td>${indexD2}</td></tr>`:'';
             }
             );
             d3.select('.index-list>table>tbody').remove();
@@ -186,12 +183,8 @@
             layoutIndex[0].innerHTML = country.length;
             layoutIndex[1].innerHTML = d3.sum(cooperNum);
 
-            let indexContent = country.map((item, index) => {
-                // let country2 = (country[index+1])?country[index+1]:'';
-                // let cooperNum2 = (cooperNum[index+1])?cooperNum[index+1]:'';
+            let indexContent = country.map(item => {
                 return `<tr><td>${item}</td><td>${cooper[item]}</td></tr>`
-                // return (index %2 ===0)?`<tr><td>${item}</td><td>${cooper[item]}</td><td>${country2}</td><td>${cooperNum2}</td></tr>`:'';
-
             })
             d3.select('.index-list>table>tbody').remove();
             indexList.innerHTML += indexContent.join('');
@@ -236,6 +229,8 @@
         dataset['columns'] = columns;
         setTable(dataset, modelOption.columnNum, chartOption, modelOption.draw, setLayoutTitles);
         modelOption.drawBase(dataset, chartOption);
+        let loading = document.querySelector('#loading').classList;
+        loading.add('hidden');
         document.querySelector('#univ-list>tbody>tr>td').click();
         listenSearch(dataset,modelOption);
     });
@@ -909,3 +904,8 @@ function drawDonutChart(dataset,indexdata,option){
 
     }
 }
+
+// window.onload = function () {
+//     let loading = document.querySelector('#loading').classList;
+//     loading.add('hidden');
+// }
