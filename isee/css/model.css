@@ -182,6 +182,7 @@ main{
     text-align: center;
     height:100vh;
     position: sticky;
+    position: -webkit-sticky;
     top:0;
     max-width:18rem;
 }
@@ -199,7 +200,9 @@ body.medicalWork .institution-list{
 }
 .btn-search-list input{
     border:none;
+    -webkit-appearance: none;
     height:2rem;
+    line-height: 2rem;
     width: 100%;
     border-radius:0.2rem;
     font-size:1rem;
