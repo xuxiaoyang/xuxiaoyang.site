@@ -75,6 +75,9 @@
     .drawer-open .drawer-toggle{
         left: 16rem;
     }
+    body.medicalWork .drawer-open .drawer-toggle{
+        left: 19rem;
+    }
     .drawer-open .drawer-overlay{
         position:fixed;
         left:0;
@@ -187,7 +190,7 @@ main{
     max-width:18rem;
 }
 body.medicalWork .institution-list{
-    max-width:20rem;
+    /* max-width:20rem; */
     min-width:19rem;
 }
 .isee-layout{
