@@ -107,24 +107,28 @@
 
 
 
-  <meta name="description" content="专注数据可视化">
-<meta name="keywords" content="数据可视化,前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.羊">
-<meta property="og:url" content="http://xuxiaoyang.site/archives/2017/11/index.html">
+  <meta name="description" content="近几年，随着大数据的兴起、浏览器性能的提升以及web前端技术的快速迭代，基于js的web前端数据可视化技术（D3、echarts 、highcharts、AntV等）成为了数据可视化领域的”当红炸子鸡”。数据可视化产品通常是To B的产品，这些js库最常使用的场景就是在客户浏览器端渲染展示可视化图表。但是如果要一次性创建上百张信息图表，在浏览器端渲染生成显然不科学，这就需要在服务器端使用后端语言(">
+<meta name="keywords" content="node,echarts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node+echarts实现服务器端渲染可视化图表">
+<meta property="og:url" content="http://xuxiaoyang.site/2019/03/25/node-echarts/index.html">
 <meta property="og:site_name" content="Mr.羊">
-<meta property="og:description" content="专注数据可视化">
+<meta property="og:description" content="近几年，随着大数据的兴起、浏览器性能的提升以及web前端技术的快速迭代，基于js的web前端数据可视化技术（D3、echarts 、highcharts、AntV等）成为了数据可视化领域的”当红炸子鸡”。数据可视化产品通常是To B的产品，这些js库最常使用的场景就是在客户浏览器端渲染展示可视化图表。但是如果要一次性创建上百张信息图表，在浏览器端渲染生成显然不科学，这就需要在服务器端使用后端语言(">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/03/25/node-echarts/node-echarts02.png">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/03/25/node-echarts/node-echarts01.png">
+<meta property="og:updated_time" content="2019-03-25T03:45:36.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.羊">
-<meta name="twitter:description" content="专注数据可视化">
+<meta name="twitter:title" content="node+echarts实现服务器端渲染可视化图表">
+<meta name="twitter:description" content="近几年，随着大数据的兴起、浏览器性能的提升以及web前端技术的快速迭代，基于js的web前端数据可视化技术（D3、echarts 、highcharts、AntV等）成为了数据可视化领域的”当红炸子鸡”。数据可视化产品通常是To B的产品，这些js库最常使用的场景就是在客户浏览器端渲染展示可视化图表。但是如果要一次性创建上百张信息图表，在浏览器端渲染生成显然不科学，这就需要在服务器端使用后端语言(">
+<meta name="twitter:image" content="http://xuxiaoyang.site/2019/03/25/node-echarts/node-echarts02.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xuxiaoyang.site/archives/2017/11/"/>
+  <link rel="canonical" href="http://xuxiaoyang.site/2019/03/25/node-echarts/"/>
 
 
 
@@ -134,7 +138,7 @@
   };
 </script>
 
-  <title>归档 | Mr.羊</title>
+  <title>node+echarts实现服务器端渲染可视化图表 | Mr.羊</title>
   
 
 
@@ -182,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -297,25 +301,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -373,80 +358,224 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 17 篇日志。 继续努力。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2019/03/25/node-echarts/"/>
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小羊"/>
+      <meta itemprop="description" content="专注数据可视化"/>
+      <meta itemprop="image" content="/images/avatar.jpeg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.羊"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2017/11/26/csv-into-mysql/" itemprop="url">
-            
-              <span itemprop="name">csv文本格式数据导入MySQL的方法</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">node+echarts实现服务器端渲染可视化图表
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T13:34:44+08:00"
-              content="2017-11-26">
-          11-26
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-25 11:17:10" itemprop="dateCreated datePublished" datetime="2019-03-25T11:17:10+08:00">2019-03-25</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据可视化/" itemprop="url" rel="index"><span itemprop="name">数据可视化</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>近几年，随着大数据的兴起、浏览器性能的提升以及web前端技术的快速迭代，基于js的web前端数据可视化技术（D3、echarts 、highcharts、AntV等）成为了数据可视化领域的”当红炸子鸡”。数据可视化产品通常是To B的产品，这些js库最常使用的场景就是在客户浏览器端渲染展示可视化图表。但是如果要一次性创建上百张信息图表，在浏览器端渲染生成显然不科学，这就需要在服务器端使用后端语言(java、python等）预先渲染成图片。Node.js的出现将js的触角伸向了服务器端，这里探讨一下如何使用Node实现服务器端渲染可视化图表。</p>
+<p>Node实现服务器端渲染可视化图表主要有两种方案:</p>
+<p>第一种方案：使用流行的headless环境，也就是所谓的无头浏览器，包括puppeteer、headless chrome、PhantomJS等。通过node操作无头浏览器渲染可视化图表，并调用浏览器截图API把渲染的结果截图保存下来。</p>
+<p>第二种方案：使用Node调用canvas模块直接在后端渲染可视化图表并保存。<br><a id="more"></a></p>
+<p>废话不多说，直接撸代码。</p>
+<p>————————–分割线————————–</p>
+<h3 id="第一种方案"><a href="#第一种方案" class="headerlink" title="第一种方案"></a>第一种方案</h3><p>headless环境选择Puppeteer，js可视化库选择echarts。Puppeteer是谷歌官方出品的一个通过DevTools协议控制headless Chrome的Node库，感兴趣可以去其官网详细了解一下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入两个模块Puppeteer和path</span></span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);<span class="comment">//npm install安装一下</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);<span class="comment">//Node内置模块</span></span><br><span class="line"><span class="comment">//定义渲染可视化图表并截图函数</span></span><br><span class="line"><span class="keyword">const</span> render = <span class="keyword">async</span>(subject,arrData)=&gt;&#123;</span><br><span class="line">      <span class="comment">// 启动浏览器</span></span><br><span class="line">      <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">args</span>: [<span class="string">'--no-sandbox'</span>],<span class="attr">timeout</span>:<span class="number">0</span>&#125;);</span><br><span class="line">      <span class="comment">//创建空白页面</span></span><br><span class="line">      <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">      <span class="comment">//定义网页模板</span></span><br><span class="line">      <span class="keyword">let</span> htmlTemplate = </span><br><span class="line">      <span class="string">`&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="string">      &lt;html lang="en"&gt;</span></span><br><span class="line"><span class="string">            &lt;head&gt;</span></span><br><span class="line"><span class="string">                  &lt;meta charset="UTF-8"&gt;</span></span><br><span class="line"><span class="string">                  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></span><br><span class="line"><span class="string">                  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</span></span><br><span class="line"><span class="string">                  &lt;title&gt;Document&lt;/title&gt;</span></span><br><span class="line"><span class="string">            &lt;/head&gt;</span></span><br><span class="line"><span class="string">            &lt;body&gt;</span></span><br><span class="line"><span class="string">                  &lt;div id="canvas" style="width:1400px;height:800px"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;/body&gt;</span></span><br><span class="line"><span class="string">      &lt;/html&gt;`</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//设置网页源码</span></span><br><span class="line">      <span class="keyword">await</span> page.setContent(htmlTemplate);</span><br><span class="line">      <span class="comment">// 传递数据到evaluate函数中，挂载到window对象的全局属性中</span></span><br><span class="line">      <span class="keyword">await</span> page.evaluate(<span class="function">(<span class="params">arrData</span>)=&gt;</span>&#123;</span><br><span class="line">     			<span class="built_in">window</span>.chart = &#123;<span class="attr">arrData</span>:arrData&#125;</span><br><span class="line">      &#125;,arrData);</span><br><span class="line">      <span class="comment">//在网页中导入echarts库</span></span><br><span class="line">      <span class="keyword">await</span> page.addScriptTag(&#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'../public/js/echarts.min.js'</span>)</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//在网页中导入可视化图表渲染代码</span></span><br><span class="line">  		<span class="keyword">await</span> page.addScriptTag(&#123;</span><br><span class="line">       			content:<span class="string">`</span></span><br><span class="line"><span class="string">            (function (window) &#123;</span></span><br><span class="line"><span class="string">            var option = &#123;</span></span><br><span class="line"><span class="string">            //echarts配置项</span></span><br><span class="line"><span class="string">            //.....</span></span><br><span class="line"><span class="string">            &#125;;</span></span><br><span class="line"><span class="string">            var myChart = window.echarts.init(document.getElementById('canvas'));</span></span><br><span class="line"><span class="string">            myChart.setOption(option);</span></span><br><span class="line"><span class="string">            &#125;)(this);`</span></span><br><span class="line">        &#125;);</span><br><span class="line">      <span class="comment">//对渲染后的图表截图</span></span><br><span class="line">      <span class="keyword">let</span> canvas = <span class="keyword">await</span> page.$(<span class="string">'#canvas'</span>);</span><br><span class="line">      <span class="keyword">await</span> canvas.screenshot(&#123;</span><br><span class="line">        type: <span class="string">'jpeg'</span>,<span class="comment">//默认png</span></span><br><span class="line">        quality:<span class="number">100</span>,</span><br><span class="line">        path:path.resolve(__dirname, <span class="string">'../public/images/'</span>+subject+<span class="string">".jpg"</span>)  </span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="comment">// 关闭网页</span></span><br><span class="line">      <span class="keyword">await</span> page.close();     </span><br><span class="line">      <span class="comment">// 关闭浏览器</span></span><br><span class="line">      <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第二种方案"><a href="#第二种方案" class="headerlink" title="第二种方案"></a>第二种方案</h3><p>使用Node的canvas模块，js可视化库选择echarts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">require</span>(<span class="string">"canvas"</span>);<span class="comment">//npm install canvas</span></span><br><span class="line"><span class="keyword">const</span> echarts = <span class="built_in">require</span>(<span class="string">"echarts"</span>);<span class="comment">//npm install echarts</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);<span class="comment">//node内置模块,直接引入</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个canvas实例</span></span><br><span class="line"><span class="keyword">let</span> ctx = canvas.createCanvas(<span class="number">800</span>,<span class="number">600</span>)</span><br><span class="line"><span class="comment">//将canvas实例设置为echarts容器</span></span><br><span class="line">echarts.setCanvasCreator(<span class="function"><span class="params">()</span>=&gt;</span>ctx)</span><br><span class="line"><span class="comment">//使用canvas实例为容器创建echarts实例</span></span><br><span class="line"><span class="keyword">let</span> chart = echarts.init(ctx)</span><br><span class="line"><span class="comment">//echarts配置项</span></span><br><span class="line"><span class="keyword">let</span> option = &#123;</span><br><span class="line">    <span class="comment">//....</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//设置图标实例配置项</span></span><br><span class="line">chart.setOption(option);</span><br><span class="line"><span class="comment">//保存图片</span></span><br><span class="line"><span class="keyword">const</span> imgPath =  __dirname + <span class="string">'/bubble.png'</span></span><br><span class="line">fs.writeFileSync(imgPath, chart.getDom().toBuffer());</span><br></pre></td></tr></table></figure>
+<p>相比第一种方案，第二方案更加快捷、高效，推荐使用第二方案。如果不想写这么多代码，有一个<a href="https://github.com/xuxiaoyang/node-echarts" title="[node-echarts模块]" target="_blank" rel="noopener">node-echarts</a><br>的模块可以拿过来直接用。</p>
+<p>最后，来看下渲染结果（以散点图为例）。<br><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/03/25/node-echarts/node-echarts02.png" class="full-image" alt="散点图集合"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span><br><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/03/25/node-echarts/node-echarts01.png" class="full-image" alt="散点图"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span><br>perfect &amp; 无懈可击！</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小羊</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://xuxiaoyang.site/2019/03/25/node-echarts/" title="node+echarts实现服务器端渲染可视化图表">http://xuxiaoyang.site/2019/03/25/node-echarts/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+            <a href="/tags/echarts/" rel="tag"># echarts</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/24/http-code/" rel="next" title="服务器返回的状态码">
+                <i class="fa fa-chevron-left"></i> 服务器返回的状态码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -466,8 +595,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -658,6 +796,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种方案"><span class="nav-number">1.</span> <span class="nav-text">第一种方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种方案"><span class="nav-number">2.</span> <span class="nav-text">第二种方案</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -806,6 +961,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -821,6 +980,8 @@
 
   
 
+
+  
 
 
   
