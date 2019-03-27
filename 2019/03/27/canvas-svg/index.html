@@ -107,25 +107,27 @@
 
 
 
-  <meta name="description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
-<meta name="keywords" content="HTTP状态码">
+  <meta name="description" content="Canvas 是HTML5新增的标签元素，它就像一个画布，JS通过操作HTML5提供的绘图 API在Canvas标签上绘制图形，与SVG相反，Canvas绘制的是位图，也叫标量图、点阵图。 SVG全称Scalable Vector Graphics，可缩放矢量图，单看这名字就知道是用来绘制矢量图的。W3C上是这样描述的：SVG是一种基于XML语法的图像格式，通过XML文档描述绘图。什么意思？通俗点">
+<meta name="keywords" content="canvas,svg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务器返回的状态码">
-<meta property="og:url" content="http://xuxiaoyang.site/2018/07/24/http-code/index.html">
+<meta property="og:title" content="JS数据可视化技术选型之Canvas与SVG">
+<meta property="og:url" content="http://xuxiaoyang.site/2019/03/27/canvas-svg/index.html">
 <meta property="og:site_name" content="Mr.羊">
-<meta property="og:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
+<meta property="og:description" content="Canvas 是HTML5新增的标签元素，它就像一个画布，JS通过操作HTML5提供的绘图 API在Canvas标签上绘制图形，与SVG相反，Canvas绘制的是位图，也叫标量图、点阵图。 SVG全称Scalable Vector Graphics，可缩放矢量图，单看这名字就知道是用来绘制矢量图的。W3C上是这样描述的：SVG是一种基于XML语法的图像格式，通过XML文档描述绘图。什么意思？通俗点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-25T07:01:16.486Z">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/03/27/canvas-svg/scatter.png">
+<meta property="og:updated_time" content="2019-03-27T11:05:08.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器返回的状态码">
-<meta name="twitter:description" content="关于状态码用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。  1XX 信息性状态码（Information） 服务器正在处理请求 2XX 成功状态码 （Success） 请求已经正常处理完毕 3XX 重定向状">
+<meta name="twitter:title" content="JS数据可视化技术选型之Canvas与SVG">
+<meta name="twitter:description" content="Canvas 是HTML5新增的标签元素，它就像一个画布，JS通过操作HTML5提供的绘图 API在Canvas标签上绘制图形，与SVG相反，Canvas绘制的是位图，也叫标量图、点阵图。 SVG全称Scalable Vector Graphics，可缩放矢量图，单看这名字就知道是用来绘制矢量图的。W3C上是这样描述的：SVG是一种基于XML语法的图像格式，通过XML文档描述绘图。什么意思？通俗点">
+<meta name="twitter:image" content="http://xuxiaoyang.site/2019/03/27/canvas-svg/scatter.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xuxiaoyang.site/2018/07/24/http-code/"/>
+  <link rel="canonical" href="http://xuxiaoyang.site/2019/03/27/canvas-svg/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>服务器返回的状态码 | Mr.羊</title>
+  <title>JS数据可视化技术选型之Canvas与SVG | Mr.羊</title>
   
 
 
@@ -371,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2018/07/24/http-code/"/>
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2019/03/27/canvas-svg/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小羊"/>
@@ -388,7 +390,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">服务器返回的状态码
+          <h2 class="post-title" itemprop="name headline">JS数据可视化技术选型之Canvas与SVG
 
               
             
@@ -414,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2018-07-24 16:12:44" itemprop="dateCreated datePublished" datetime="2018-07-24T16:12:44+08:00">2018-07-24</time>
+              <time title="创建时间：2019-03-27 18:51:37" itemprop="dateCreated datePublished" datetime="2019-03-27T18:51:37+08:00">2019-03-27</time>
             
 
             
@@ -432,7 +434,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据可视化/" itemprop="url" rel="index"><span itemprop="name">数据可视化</span></a></span>
 
                 
                 
@@ -467,38 +469,21 @@
       
 
       
-        <h3 id="关于状态码"><a href="#关于状态码" class="headerlink" title="关于状态码"></a>关于状态码</h3><p>用户从客户端向服务器发送请求后，服务器接收请求后会向用户返回状态码，用于告诉用户服务器响应的状态。通过状态码可以知道当前请求服务器是否响应成功，如果没有成功是出了什么问题。<br>状态码由三位数字组成，第一位数字表示响应类别，分别以1-5数字打头。</p>
-<ul>
-<li>1XX 信息性状态码（Information） 服务器正在处理请求</li>
-<li>2XX 成功状态码 （Success） 请求已经正常处理完毕</li>
-<li>3XX 重定向状态码 (Redirection) 需要进行额外操作来完成请求</li>
-<li>4XX 客户端错误状态码 (Client Error) 客户端原因导致服务器无法处理请求</li>
-<li>5XX 服务器错误状态码 (Server Error) 服务器原因导致处理请求出错</li>
-</ul>
-<a id="more"></a>
-<p>根据后两位数字的不同，在5类的基础上进行细分。RFC2616（用来指定HTTP协议标准的文档）标准定义的HTTP状态码有四十多种，但是常见且具有代表性的共有14种，其中2XX（成功）3个，3XX（重定向）5个,4XX(客户端错误)4个，5XX(服务器错误)2个。</p>
-<h3 id="2XX成功"><a href="#2XX成功" class="headerlink" title="2XX成功"></a>2XX成功</h3><ol>
-<li>200 OK. 表示请求被服务器正常处理。</li>
-<li>204 No Content. 表示请求已经被成功处理，但是没有内容返回。一般用在只是客户端向服务器发送信息，而服务器不用向客户端返回什么信息的情况。这种情况浏览器页面不会更新。</li>
-<li>206 Partial Content.表示服务器已经完成了部分GET请求（客户端进行了范围请求）。</li>
-</ol>
-<h3 id="3XX重定向"><a href="#3XX重定向" class="headerlink" title="3XX重定向"></a>3XX重定向</h3><ol start="4">
-<li>301 Moved Permanently.永久重定向，表示请求的资源已经永久的搬到了其他位置，即资源已经被分配了新的URI，新的URI应该提示在响应报文的Location首部字段，只要不是HEAD请求，响应实体应该包含新URI的超链接和简短的说明。</li>
-<li>302 Found.临时重定向，表示请求的资源临时搬到了其他位置。请求的资源暂时被配到到了新的URI。</li>
-<li>303 See Other. 表示请求资源存在另一个URI，应使用GET定向获取请求资源。</li>
-<li>304 Not Modified. 表示客户端发送附带条件的请求（GET方法请求报文中的IF…）时，条件不满足。虽然304被划分在3XX，但和重定向一毛钱关系都没有</li>
-<li>307 Temporary Redirect.临时重定向,与302含义相同，区别是307会遵照标准，不会从POST变为GET。</li>
-</ol>
-<h3 id="4XX客户端错误"><a href="#4XX客户端错误" class="headerlink" title="4XX客户端错误"></a>4XX客户端错误</h3><ol start="9">
-<li>400 Bad Request. 表示请求报文存在语法错误或参数错误，服务器不理解。</li>
-<li>401 Unauthorized. 表示发送的请求需要HTTP认证信息或者认证失败。</li>
-<li>403 Forbidden. 表示对请求资源的访问被服务器拒绝了。</li>
-<li>404 Not Found.表示服务器找不到你请求的资源。也有可能服务器就是不想给你然后骗你找不到。</li>
-</ol>
-<h3 id="5XX服务器错误"><a href="#5XX服务器错误" class="headerlink" title="5XX服务器错误"></a>5XX服务器错误</h3><ol start="13">
-<li>500 Internal Server Error. 表示服务器执行请求的时候出错了,可能是Web应用有bug或临时故障,更有可能是服务器源代码有bug…</li>
-<li>503 Service Unavailable.表示服务器超负载或正停机维护，无法处理请求。</li>
-</ol>
+        <p>Canvas 是HTML5新增的标签元素，它就像一个画布，JS通过操作HTML5提供的绘图 API在Canvas标签上绘制图形，与SVG相反，Canvas绘制的是位图，也叫标量图、点阵图。</p>
+<p>SVG全称Scalable Vector Graphics，可缩放矢量图，单看这名字就知道是用来绘制矢量图的。W3C上是这样描述的：SVG是一种基于XML语法的图像格式，通过XML文档描述绘图。什么意思？通俗点讲就是SVG是通过标签元素DOM来绘制图形。相比Canvas，SVG是位老前辈了，2003年这位前辈就已经是W3C 标准，但是由于它长相复杂而且有点不求上进，十几年来发展非常缓慢。</p>
+<p>在HTML5还没有发布的年代，浏览器的内置功能在可视化方面可做的事情非常有限，不得不借助Flash。HTML5新增了Canvas标签、改进SVG特性并支持内联SVG，促使web前端数据可视化后来居上，成为数据可视化领域的网红利器。当前主流的JavaScript数据可视化库，比如D3、Echarts、HighCharts、AntV等均是基于Canvas或者SVG的绘图技术，而且D3、Echarts、AntV已经同时支持Canvas和SVG渲染。<br><a id="more"></a><br>Canvas与SVG虽说都是浏览器内置的2D图形绘制技术，在HTML5中感觉很相似，但是两者有着本质的不同，并且各有优缺点。WebGL是Canvas的3D绘图标准，能实现3D数据可视化，这里不详细说，说到Canvas通常指它的2D绘图功能。</p>
+<p>举个例子，用Canvas和SVG分别绘制一个同样的散点图。<br><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/03/27/canvas-svg/scatter.png" class="full-image" alt="一个散点图例子"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span><br>使用Canvas绘制散点图HTML代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">data-zr-dom-id</span>=<span class="string">"zr_0"</span> <span class="attr">width</span>=<span class="string">"1600"</span> <span class="attr">height</span>=<span class="string">"1200"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">style</span>=<span class="string">"position: absolute; left: 0px; top: 0px; width: 800px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure><br>​使用SVG绘制散点图HTML代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"1600"</span> <span class="attr">height</span>=<span class="string">"1200"</span> <span class="attr">preserveAspectRatio</span>=<span class="string">"xMidYMid meet"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 998 577"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"main"</span> <span class="attr">transform</span>=<span class="string">"translate(499,288.5) scale(1)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"base"</span> <span class="attr">transform</span>=<span class="string">"translate(-1.9987640206820743,0.6762029975734265) scale(0.9917167307382942)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"axis"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">font-size</span>=<span class="string">"10"</span> <span class="attr">font-family</span>=<span class="string">"sans-serif"</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">transform</span>=<span class="string">"translate(0,-24.041666666666686)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"domain"</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">d</span>=<span class="string">"M-373.75,4V0.5H374.75V4"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"tick"</span> <span class="attr">opacity</span>=<span class="string">"1"</span> <span class="attr">transform</span>=<span class="string">"translate(-373.75,0)"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">line</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">y2</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">line</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">fill</span>=<span class="string">"currentColor"</span> <span class="attr">y</span>=<span class="string">"7"</span> <span class="attr">dy</span>=<span class="string">"0.71em"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--..... --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 此处省略10行g标签 --&gt;</span>    </span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"axis"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">font-size</span>=<span class="string">"10"</span> <span class="attr">font-family</span>=<span class="string">"sans-serif"</span> <span class="attr">text-anchor</span>=<span class="string">"end"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">transform</span>=<span class="string">"translate(-213.59320669671604,0)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"domain"</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">d</span>=<span class="string">"M-4,-215.875H0.5V216.875H-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"tick"</span> <span class="attr">opacity</span>=<span class="string">"1"</span> <span class="attr">transform</span>=<span class="string">"translate(0,-215.875)"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">line</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">x2</span>=<span class="string">"-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">line</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">fill</span>=<span class="string">"currentColor"</span> <span class="attr">x</span>=<span class="string">"-7"</span> <span class="attr">dy</span>=<span class="string">"0.32em"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--..... --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 此处省略10行g标签 --&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"rect"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"748.5"</span> <span class="attr">height</span>=<span class="string">"432.75"</span> <span class="attr">transform</span>=<span class="string">"translate(-374.25,-216.375)"</span>&gt;</span><span class="tag">&lt;/<span class="name">rect</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"texts"</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">transform</span>=<span class="string">"translate(0,231.375)"</span> <span class="attr">style</span>=<span class="string">"text-anchor: middle;"</span>&gt;</span>学科产出专利数量（件）<span class="tag">&lt;/<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"texts"</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">transform</span>=<span class="string">"translate(-389.25,0) rotate(-90)"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">style</span>=<span class="string">"text-anchor: middle;"</span>&gt;</span>被引频次增长率（%）<span class="tag">&lt;/<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"points"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">transform</span>=<span class="string">"translate(-103.09112994504476,-28.888525606953024)"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">style</span>=<span class="string">"fill: rgb(24, 144, 255);"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">transform</span>=<span class="string">"translate(-286.31606424452,-23.166320070593084)"</span> <span class="attr">style</span>=<span class="string">"fill: rgb(47, 194, 91);"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">transform</span>=<span class="string">"translate(-362.4739065011714,-34.13388068194967)"</span> <span class="attr">style</span>=<span class="string">"fill: rgb(47, 194, 91);"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">           <span class="comment">&lt;!--..... --&gt;</span></span><br><span class="line">           <span class="comment">&lt;!-- 此处省略19行circle标签 --&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>比较两种渲染代码，显而易见 canvas体型小，无论什么样的可视化图表，在页面上一个canvas标签元素就够了；svg相对体型巨大，一个简单的可视化图表就需要数十个标签。这样的结构差异造成了canvas和svg的四点区别：</p>
+<p>① 事件监听</p>
+<p>canvas的事件触发是粗粒度的，仅支持在canvas元素级别；svg图形中的每一个DOM都可以绑定事件。因此，要实现图表交互，canvas必须通过鼠标坐标进行手动编程设置，svg在相应的DOM上监听事件即可。</p>
+<p>② 图形保存</p>
+<p>canvas上绘制的图形是一个位图，能够以.png或者jpg格式保存成图像；svg本身就是一个图像格式，把svg标签内容保存成.svg格式文件就是一个图像文件了（注意svg标签里需要声明命名空间）。</p>
+<p>③ 动画制作</p>
+<p>canvas中的图形绘制完成就得不到浏览器的继续关注了，如果要让图形运动就需要擦除图形然后重新绘制，利用人眼睛的视觉误差来形成动画；svg图形创建后，其内部图形元素（DOM）是真实存在的，支持可访问性，可以通过改变图形元素的属性来形成动画。</p>
+<p>④ 渲染性能</p>
+<p>canvas是对单个标签的渲染，svg是对多标签的渲染；因此，canvas适用于小面积大数据量（10k以上）的应用场景，而svg更适用于大面积小数据量的应用场景。</p>
+<p>因此，实时大规模数据可视化优先使用Canvas；高保真度的复杂静态图形可视化，如建筑图、工程图、大规模地图（百度地图、谷歌地图等）等优先使用SVG；普通交互式图表和图形可视化方面，SVG与Canvas都能胜任，此时需要结合其他客观因素（如平台：移动端 or PC端、学习成本等）进行技术选型。</p>
+<p>大概就这么多了~~~</p>
 
       
     </div>
@@ -533,7 +518,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://xuxiaoyang.site/2018/07/24/http-code/" title="服务器返回的状态码">http://xuxiaoyang.site/2018/07/24/http-code/</a>
+    <a href="http://xuxiaoyang.site/2019/03/27/canvas-svg/" title="JS数据可视化技术选型之Canvas与SVG">http://xuxiaoyang.site/2019/03/27/canvas-svg/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -546,7 +531,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP状态码/" rel="tag"># HTTP状态码</a>
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+            <a href="/tags/svg/" rel="tag"># svg</a>
           
         </div>
       
@@ -559,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/13/BFC/" rel="next" title="深入理解BFC">
-                <i class="fa fa-chevron-left"></i> 深入理解BFC
+              <a href="/2019/03/25/node-echarts/" rel="next" title="node+echarts实现服务器端渲染可视化图表">
+                <i class="fa fa-chevron-left"></i> node+echarts实现服务器端渲染可视化图表
               </a>
             
           </div>
@@ -568,10 +555,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/25/node-echarts/" rel="prev" title="node+echarts实现服务器端渲染可视化图表">
-                node+echarts实现服务器端渲染可视化图表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,17 +598,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -819,23 +793,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于状态码"><span class="nav-number">1.</span> <span class="nav-text">关于状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2XX成功"><span class="nav-number">2.</span> <span class="nav-text">2XX成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3XX重定向"><span class="nav-number">3.</span> <span class="nav-text">3XX重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4XX客户端错误"><span class="nav-number">4.</span> <span class="nav-text">4XX客户端错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5XX服务器错误"><span class="nav-number">5.</span> <span class="nav-text">5XX服务器错误</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
