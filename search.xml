@@ -49,7 +49,7 @@
   <entry>
     <title><![CDATA[js快速排序]]></title>
     <url>%2F2018%2F02%2F11%2Fjs-quickSort%2F</url>
-    <content type="text"><![CDATA[快速排序的基本思想是:1．先从数列中取出一个数作为基准数。2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。3．再对左右区间重复第二步，直到各区间只有一个数 概括起来就是”挖坑填数，分二治之”。因为网上具体讲解快速排序的思路的博客很多，这里废话不多说，直接上代码。1234567891011121314151617181920212223242526272829function QuickSort(arr,low,high)&#123; var i = low;//数组第一个元素的索引 var j = high;//数组最后个元素的索引，arr.length-1 var x = arr[i]; if(i&gt;=j) return arr; //挖坑填数 while(i&lt;j)&#123; for(;j&gt;i;j--)&#123; if(arr[j]&lt;=x)&#123; arr[i]=arr[j]; i++; break; &#125; &#125; for(;j&gt;i;i++)&#123; if(arr[i]&gt;=x)&#123; arr[j]=arr[i]; j--; break; &#125; &#125; &#125; arr[i] = x; //分二置之 QuickSort(arr,low,i-1); QuickSort(arr,i+1,high); return arr;&#125;]]></content>
+    <content type="text"><![CDATA[快速排序的基本思想是:1．先从数列中取出一个数作为基准数。2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。3．再对左右区间重复第二步，直到各区间只有一个数 概括起来就是”挖坑填数，分二治之”。因为网上具体讲解快速排序的思路的博客很多，这里直接上代码。读了《算法图解》,发现以前自己写的快排真是的太扯淡了，一坨屎啊，下面这个优雅得不行~~~哈哈哈12345678function quickSort(arr)&#123; if(arr.length&lt;2) return arr; var baseValue = arr[0]; let less = arr.slice(1).filter(d=&gt;d&lt;=baseValue); let greater = arr.slice(1).filter(d=&gt;d&gt;baseValue); return [].concat(quickSort(less),baseValue,quickSort(greater)); &#125;]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -165,8 +165,8 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>VFP</tag>
         <tag>MySQL</tag>
+        <tag>VFP</tag>
       </tags>
   </entry>
   <entry>
