@@ -474,11 +474,14 @@ function initChartTypeDemoData(type) {
     } else if (type == 'wordCloud') {
         data = [
             ["词", "大小"],
-            ['数据可视化', 50],
-            ['图说数据', 30],
+            ['数据可视化', 30],
+            ['可拖拽', 30],
             ['关系图', 20],
             ['可视分析', 40],
-            ['网络建模', 10]
+            ['社会网络', 10],
+            ['工程化', 20],
+            ['Echarts', 40],
+            ['D3', 50]
         ]
     } else if (type == 'radar' || type == 'cradar' || type == 'mutfunnel') {
         data = [
@@ -492,7 +495,7 @@ function initChartTypeDemoData(type) {
     } else if (type == 'gauge') {
         data = [
             ["指标", "值", "最小值", "最大值"],
-            ["时速", 100, 0, 180]
+            ["时速", 80, 0, 180]
         ]
     } else if (type == 'graph' || type == 'cgraph') {
         data = [
