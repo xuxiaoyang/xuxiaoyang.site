@@ -1,0 +1,141 @@
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+a {
+    text-decoration:none;
+}
+
+.main {
+    background: #fff;
+    position: absolute;
+    float: left;
+    left: 200px;
+    right: 0px;
+    top: 50px;
+    bottom: 0px;
+    padding: 8px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    overflow: auto;
+}
+.collapse .main {
+    left: 50px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+}
+
+.menu-btn {
+    height: 30px;
+    line-height: 30px;
+    color: #aeb9c2;
+    background-color: #4a5064;
+    font-size: 14px;
+    text-align: center;
+}
+
+.mymenu .mini-menu-float {
+    display: inline-block;
+    float: right;
+}
+
+.main .container-fluid{
+    padding-right: 0px; 
+    padding-left: 0px;
+    margin-bottom: 100px;
+    min-height: calc(100vh - 60px);
+    background: #fff;
+    border: 1px solid #dfe4e9;
+}
+
+.grid-stack-item-content {
+    border:1px solid #666;
+}
+
+.widget {
+    /*background: #fafafa;*/
+    border: 1px solid #e0dede;
+    clear: both;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.widget .widget-header{
+    height: 20px;
+    line-height: 20px;
+    /*background-color:#748394;
+    color: #fff;*/
+    cursor: move;
+}
+
+.widget .widget-header .title {
+    color: #ebe1e1;
+    float: left;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+.widget .widget-header span.tools {
+    padding: 0;
+    float: right;
+    margin: 0;
+    display: none;
+}
+
+.widget:hover .widget-header span.tools{
+    display: inline-block;
+}
+
+.widget .widget-header span.tools > a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #999;
+    margin-top: 3px;
+    text-decoration: none;
+}
+
+.widget .widget-header span.tools > a:hover{
+    color: #666;
+}
+
+.widget .widget-body {
+    padding: 10px;
+    height: calc(100% - 30px);
+    background: #fff;
+}
+
+#themeType > li{
+    font-size: 14px;
+}
+#themeType > li.current{
+    background-color:#5ba0e9;
+}
+#themeType > li.current>a{
+    color: #fff;
+}
+#themeType > li.current:hover > a{
+    color: #666;
+}
+
