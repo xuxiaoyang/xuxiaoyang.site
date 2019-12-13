@@ -107,25 +107,32 @@
 
 
 
-  <meta name="description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="​长条图赛跑动画的数据可视化作品屡见不鲜，比如年来世界人口变化、年来最流行的编程语言排行变化，视觉上酷炫吊炸天，彰显着数据可视化的魅力。这里介绍一个简单易用的长条图赛跑动画的React组件[1]（这个组件AxisSort上有bug请使用修复版本[2]），并根据这个组件实现一个长条图赛跑动画。">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL存储过程">
-<meta property="og:url" content="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/index.html">
+<meta property="og:title" content="长条图赛跑动画实现">
+<meta property="og:url" content="http://xuxiaoyang.site/2019/12/13/chart-race/index.html">
 <meta property="og:site_name" content="Mr.羊">
-<meta property="og:description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
+<meta property="og:description" content="​长条图赛跑动画的数据可视化作品屡见不鲜，比如年来世界人口变化、年来最流行的编程语言排行变化，视觉上酷炫吊炸天，彰显着数据可视化的魅力。这里介绍一个简单易用的长条图赛跑动画的React组件[1]（这个组件AxisSort上有bug请使用修复版本[2]），并根据这个组件实现一个长条图赛跑动画。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-11T03:10:15.604Z">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/chart-race-react.gif">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/bar.png">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/barchart.png">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/App.png">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/data.png">
+<meta property="og:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/race.gif">
+<meta property="og:updated_time" content="2019-12-13T11:53:33.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL存储过程">
-<meta name="twitter:description" content="什么是存储过程？SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。存储过程三个优点：增强SQL">
+<meta name="twitter:title" content="长条图赛跑动画实现">
+<meta name="twitter:description" content="​长条图赛跑动画的数据可视化作品屡见不鲜，比如年来世界人口变化、年来最流行的编程语言排行变化，视觉上酷炫吊炸天，彰显着数据可视化的魅力。这里介绍一个简单易用的长条图赛跑动画的React组件[1]（这个组件AxisSort上有bug请使用修复版本[2]），并根据这个组件实现一个长条图赛跑动画。">
+<meta name="twitter:image" content="http://xuxiaoyang.site/2019/12/13/chart-race/chart-race-react.gif">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/"/>
+  <link rel="canonical" href="http://xuxiaoyang.site/2019/12/13/chart-race/"/>
 
 
 
@@ -135,7 +142,7 @@
   };
 </script>
 
-  <title>MySQL存储过程 | Mr.羊</title>
+  <title>长条图赛跑动画实现 | Mr.羊</title>
   
 
 
@@ -371,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/"/>
+    <link itemprop="mainEntityOfPage" href="http://xuxiaoyang.site/2019/12/13/chart-race/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小羊"/>
@@ -388,7 +395,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">MySQL存储过程
+          <h2 class="post-title" itemprop="name headline">长条图赛跑动画实现
 
               
             
@@ -414,7 +421,7 @@
                 
               
 
-              <time title="创建时间：2017-07-19 13:09:50" itemprop="dateCreated datePublished" datetime="2017-07-19T13:09:50+08:00">2017-07-19</time>
+              <time title="创建时间：2019-12-13 19:40:31" itemprop="dateCreated datePublished" datetime="2019-12-13T19:40:31+08:00">2019-12-13</time>
             
 
             
@@ -432,7 +439,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据可视化/" itemprop="url" rel="index"><span itemprop="name">数据可视化</span></a></span>
 
                 
                 
@@ -467,16 +474,35 @@
       
 
       
-        <h3 id="什么是存储过程？"><a href="#什么是存储过程？" class="headerlink" title="什么是存储过程？"></a>什么是存储过程？</h3><p>SQL命令-MySQL引擎分析语法是否正确-编译SQL命令-执行结果-返回客户端。如果省略语法分析和编译环境可以提高MySQL的执行效率<br>存储过程是为以后使用而保存的一条或多条SQL语句，是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。 可将其视为批文件，但作用不限于批处理。存储过程中可以包含控制语句。MySQL最新版本支持存储过程。<br>存储过程三个优点：<br>增强SQL语句的功能和灵活性<br>较快的执行速度<br>减少网络流量</p>
+        <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/chart-race-react.gif" class="full-image" alt="世界人口变化"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>​长条图赛跑动画的数据可视化作品屡见不鲜，比如<strong>年来世界人口变化、</strong>年来最流行的编程语言排行变化，视觉上酷炫吊炸天，彰显着数据可视化的魅力。这里介绍一个简单易用的长条图赛跑动画的React组件[1]（这个组件AxisSort上有bug请使用修复版本[2]），并根据这个组件实现一个长条图赛跑动画。</p>
 <a id="more"></a>
-<h3 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">CREATE</span><br><span class="line">[DEFINER= &#123;user|CURRENT_USER&#125;]</span><br><span class="line">PROCEDURE  sp_name(proc_parameter[,...])</span><br><span class="line">[characteristic...]routine_body</span><br><span class="line"></span><br><span class="line">proc_parameter:</span><br><span class="line">[IN|OUT|INOUT] para_name type</span><br><span class="line"></span><br><span class="line">IN表示该参数的值必须在调用存储过程中指定（传递值给存储过程）</span><br><span class="line">OUT表示该参数值可以被存储过程改变，并且可以返回。（从存储过程返回值）</span><br><span class="line">INOUT表示该参数在调用时指定，并且可以被指定和返回。</span><br><span class="line">characteristic特性：</span><br><span class="line">COMMENT &apos;string&apos;|&#123;CONTAINS SQL|NO SQL|READS SQL DATA |MODIFIES SQL DATA&#125;|SQL SECURITY&#123;DEFINER|INVOKER&#125;</span><br><span class="line">COMMNET 注释</span><br><span class="line">CONTAINS SQL：包含SQL语句，但不包含读或写数据的语句</span><br><span class="line">NO SQL：不包含SQL语句</span><br><span class="line">READS SQL DATA：包含读数据的语句</span><br><span class="line">MODIFIES SQL DATA：包含写数据的语句</span><br><span class="line">SQL SECURITY&#123;DEFINER|INVOKER&#125;指明谁有权限来执行</span><br><span class="line">``` </span><br><span class="line">### 过程体</span><br><span class="line">过程体由合法的SQL语句构成</span><br><span class="line">过程体可以是任意SQL语句</span><br><span class="line">过程体如果是复合结构（包含两个及以上的语句）则使用BEGIN…END语句。</span><br><span class="line">复合结构内可以包含声明、循环以及控制结构。</span><br><span class="line">``` bash</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE  sp1() SELECT VERSION();</span><br></pre></td></tr></table></figure>
-<h3 id="创建不带参数的存储过程"><a href="#创建不带参数的存储过程" class="headerlink" title="创建不带参数的存储过程"></a>创建不带参数的存储过程</h3><p>显示MySQL版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">    -&gt; CREATE DEFINER=`root`@`localhost` PROCEDURE `sp1`()</span><br><span class="line">    -&gt; SELECT VERSION()// /*显示MySQL版本*/ </span><br><span class="line">    -&gt; DELIMITER ;</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建带有IN参数的存储过程"><a href="#创建带有IN参数的存储过程" class="headerlink" title="创建带有IN参数的存储过程"></a>创建带有IN参数的存储过程</h3><p>从数据表删除指定记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE removeUserById(IN p_id INT UNSIGNIED)</span><br><span class="line">    -&gt; BEGIN</span><br><span class="line">    -&gt; DELETE FROM TEST WHERE id=p_id;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 创建INOUT类型的存储过程</span></span><br><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE RemoveUserAndReturnUserNums(IN p_id INT UNSIGNED,OUT nums INT UNSIGNED)</span><br><span class="line">    -&gt; BEGIN</span><br><span class="line">    -&gt; DELETE FROM TEST WHERE id=p_id;</span><br><span class="line">    -&gt; SELECT COUNT(ID) FROM TEST INTO NUMS;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">$ mysql&gt; DELIMITER;</span><br><span class="line">$ mysql&gt; CALL RemoveUserAndReturnUserNums(1,@nums);</span><br><span class="line">@nums为用户变量与，MySQL客户端绑定，只对当前用户客户端有效。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建带多个OUT类型参数的存储过程</span></span><br><span class="line">SELECT ROW_COUNT();返回前一个SQL进行UPDATE、DELETE、INSERT操作所影响的行数。</span><br><span class="line">``` bash</span><br><span class="line">$ mysql&gt; DELIMITER //</span><br><span class="line">$ mysql&gt; CREATE PROCEDURE RemoveUsersByAgeAndReturnInfos(IN p_id INT UNSIGNED,OUT DeleteUsers SMALLINT UNSIGNED,OUT UserCounts SMALLINT UNSIGNED)</span><br><span class="line">    -&gt; BEGIN                                                                        </span><br><span class="line">    -&gt; DELETE FROM <span class="built_in">test</span> WHERE id =p_id;                                            </span><br><span class="line">    -&gt; SELECT ROW_COUNT() INTO DeleteUsers;</span><br><span class="line">    -&gt; SELECT COUNT(id) from <span class="built_in">test</span> INTO UserCounts;</span><br><span class="line">    -&gt; END</span><br><span class="line">    -&gt; //</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">$ mysql&gt; DELIMITER ;</span><br><span class="line">$ mysql&gt; CALL RemoveUsersByAgeAndReturnInfos(8,@a,@b);</span><br></pre></td></tr></table></figure></p>
-<h3 id="调用存储过程"><a href="#调用存储过程" class="headerlink" title="调用存储过程"></a>调用存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CALL sp_name([parameter[,...]])</span><br><span class="line">CALL sp_name[()]</span><br></pre></td></tr></table></figure>
-<h3 id="修改存储过程"><a href="#修改存储过程" class="headerlink" title="修改存储过程"></a>修改存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER PROCEDURE sp_name[characteristic...]</span><br><span class="line">COMMENT &apos;string&apos;</span><br><span class="line">|&#123;CONTAINS SQL|NO SQL|READS SQL DATA |MODIFIES SQL DATA&#125;|SQL SECURITY&#123;DEFINER|INVOKER&#125;</span><br></pre></td></tr></table></figure>
-<p>修改存储过程只能修改注释以及当前内容类型，不能修改过程体。<br>若要修改过程体，只能先删除存储过程再创建存储过程。</p>
-<h3 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE [IF EXISTS] sp_name</span><br></pre></td></tr></table></figure>
-<h3 id="存储过程与自定义函数的区别"><a href="#存储过程与自定义函数的区别" class="headerlink" title="存储过程与自定义函数的区别"></a>存储过程与自定义函数的区别</h3><p>存储过程实现的功能更加复杂，函数针对性更强<br>存储过程可以返回多个值，自定义函数只能返回一个值<br>存储过程一般独立来执行，自定义函数可以作为其他SQL语句的组成部分来出现。<br>实际应用过程中很少使用函数，但是经常会把复杂的过程封装成存储过程。使用程序调用API相对于存储过程来说比较慢，可以把经常用的操作封装成存储过程。</p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><ul>
+<li>React </li>
+<li>React-transition-group React官方的过渡动画库</li>
+<li>create-react-app React官方脚手架工具</li>
+</ul>
+<h1 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h1><p>如果是学习React建议自己去配置webpack，Babel这些前端工程化的工具，搭建自己的项目架构。为了节省开发时间，本文使用脚手架工具来进行项目初始化构建。<br>cmd命令切到你要构建的项目目录下，执行这条命令<br>npx create-react-app my-chart-reace<br>前提是你已经安装了npm，一条命令项目的架子就搭起来了，简直不能再方便了。项目结构目录：</p>
+<ul>
+<li>node_modules 依赖模块</li>
+<li>public放置静态资源，如首页index.html(挂载react入口文件)</li>
+<li>src文件，这个目录下整项目代码</li>
+<li>项目配置文件package.json等</li>
+</ul>
+<h1 id="安装模块依赖"><a href="#安装模块依赖" class="headerlink" title="安装模块依赖"></a>安装模块依赖</h1><p>create-react-app这个脚手架工具只预置了react以及react-dom，需要手动安装react-transition-group这个动画库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-transition-group </span><br></pre></td></tr></table></figure></p>
+<h1 id="长条图赛跑动画实现"><a href="#长条图赛跑动画实现" class="headerlink" title="长条图赛跑动画实现"></a>长条图赛跑动画实现</h1><p>使用react实现长条图赛跑动画，这里定义两个组件 Bar、BarChart，Bar组件用来实现一个矩形图以及赛跑动画，BarChart组件上使用Bar组件实现条形图。最后，将BarCahrt组件挂载到App.js文件上（这也是一个组件，react就是组件套组件），即可完成长条赛跑图的挂载。</p>
+<h2 id="1-Bar组件的实现"><a href="#1-Bar组件的实现" class="headerlink" title="1. Bar组件的实现"></a>1. Bar组件的实现</h2><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/bar.png" class="full-image" alt="Bar组件"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<h2 id="2-ChartBar组件的实现"><a href="#2-ChartBar组件的实现" class="headerlink" title="2. ChartBar组件的实现"></a>2. ChartBar组件的实现</h2><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/barchart.png" class="full-image" alt="BarChart组件"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<h2 id="3-ChartBar组件挂载到App-js文件"><a href="#3-ChartBar组件挂载到App-js文件" class="headerlink" title="3. ChartBar组件挂载到App.js文件"></a>3. ChartBar组件挂载到App.js文件</h2><span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/App.png" class="full-image" alt="App.js"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<h2 id="4-数据配置"><a href="#4-数据配置" class="headerlink" title="4. 数据配置"></a>4. 数据配置</h2><p>BarChart组件需要传入很多值，通过这些值来配置使用BarChart组件。长条图数据data、时间线timeline、长条图标签labels、长条图颜色colors如下：</p>
+<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/data.png" class="full-image" alt="数据配置"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>其他需要传入的值比较简单，可以直接在组件属性上定义，相邻时间索引的过渡时间timeout（单位毫秒），相邻时间索引之间的等待时间delay（单位毫秒），时间线样式timelineStyle，文本样式textBoxStyle，长条矩形图样式barStyle，label、bar以及textbox的宽度分布（总和100），传入的数据项最大数量（小于等于数据键的长度）。关于传值上面代码几乎都使用了，详细了解可以去Github。</p>
+<p>万事俱备，yarn start，长条图赛跑就华丽地跑起来了….<br>秀一下成果~~~</p>
+<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/2019/12/13/chart-race/race.gif" class="full-image" alt="长条图赛跑动画Demo"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>这个Demo已经push到github，可以克隆体验。</p>
+<blockquote><p><a href="https://github.com/xuxiaoyang/ChartBar-Race-Demo" target="_blank" rel="noopener">https://github.com/xuxiaoyang/ChartBar-Race-Demo</a></p>
+</blockquote>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1] <a href="https://github.com/Mckinsey666/chart-race-react" target="_blank" rel="noopener">https://github.com/Mckinsey666/chart-race-react</a><br>[2] <a href="https://github.com/xuxiaoyang/chart-race-react" target="_blank" rel="noopener">https://github.com/xuxiaoyang/chart-race-react</a></p>
 
       
     </div>
@@ -511,7 +537,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/" title="MySQL存储过程">http://xuxiaoyang.site/2017/07/19/mysql-PROCEDURE/</a>
+    <a href="http://xuxiaoyang.site/2019/12/13/chart-race/" title="长条图赛跑动画实现">http://xuxiaoyang.site/2019/12/13/chart-race/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -524,7 +550,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
         </div>
       
@@ -537,8 +563,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/mysql-defined-function/" rel="next" title="MySQL自定义函数">
-                <i class="fa fa-chevron-left"></i> MySQL自定义函数
+              <a href="/2019/12/05/isee-vue/" rel="next" title="Vue全家桶+Echarts数据可视化实践">
+                <i class="fa fa-chevron-left"></i> Vue全家桶+Echarts数据可视化实践
               </a>
             
           </div>
@@ -546,10 +572,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/29/database-design/" rel="prev" title="数据库设计那些事">
-                数据库设计那些事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -812,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是存储过程？"><span class="nav-number">1.</span> <span class="nav-text">什么是存储过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">2.</span> <span class="nav-text">创建存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建不带参数的存储过程"><span class="nav-number">3.</span> <span class="nav-text">创建不带参数的存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建带有IN参数的存储过程"><span class="nav-number">4.</span> <span class="nav-text">创建带有IN参数的存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">5.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改存储过程"><span class="nav-number">6.</span> <span class="nav-text">修改存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">7.</span> <span class="nav-text">删除存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储过程与自定义函数的区别"><span class="nav-number">8.</span> <span class="nav-text">存储过程与自定义函数的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术栈"><span class="nav-number">1.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目初始化"><span class="nav-number">2.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装模块依赖"><span class="nav-number">3.</span> <span class="nav-text">安装模块依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长条图赛跑动画实现"><span class="nav-number">4.</span> <span class="nav-text">长条图赛跑动画实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Bar组件的实现"><span class="nav-number">4.1.</span> <span class="nav-text">1. Bar组件的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ChartBar组件的实现"><span class="nav-number">4.2.</span> <span class="nav-text">2. ChartBar组件的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ChartBar组件挂载到App-js文件"><span class="nav-number">4.3.</span> <span class="nav-text">3. ChartBar组件挂载到App.js文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数据配置"><span class="nav-number">4.4.</span> <span class="nav-text">4. 数据配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
