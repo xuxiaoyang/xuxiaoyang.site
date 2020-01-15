@@ -1,142 +1,384 @@
-﻿body,html{height:100%;width:100%}
-*{font-family:"微软雅黑"}
-body{background:#010e50 url(../images/map_bg.jpg) center top no-repeat;background-size:100% auto}
-.boxstyle{border:1px solid rgba(100,162,255,.2);box-sizing:border-box;position:relative;margin-top:5px;background:rgba(0,35,120,.36)}
-.boxstyle:after,.boxstyle:before{position:absolute;content:"";width:20px;height:30px}
-.boxstyle:before{border-left:1px solid #0258f0;border-top:1px solid #0258f0;left:-1px;top:-1px}
-.boxstyle:after{border-right:1px solid #0258f0;border-bottom:1px solid #0258f0;right:-1px;bottom:-1px}
-.title{height:35px; font-size: 18px; line-height:35px;width:90%;color:#fff;font-weight:600;padding-left:15px;position:relative;box-sizing:border-box; }
-.title:after{position:absolute;content:"";width:100%;height:1px; background: #0258f0; left:5%; opacity: .4; bottom:0;}
+﻿body,
+html {
+    height: 100%;
+    width: 100%
+}
 
-.data{width:100%;height:100%}
-.data>.data-title{width:100%;height:90px;box-sizing:border-box}
-.data>.data-title>.title-center{text-shadow:3px 3px 3px rgba(0,0,0,.3);text-align:center;line-height:80px;letter-spacing:4px;color:#fff;font-size:24px;font-weight:bolder;box-sizing:border-box}
-.data>.data-content{width:100%;height:calc(100% - 90px);padding:0 20px 20px 20px;box-sizing:border-box}
-.data>.data-content>.con-left{width:23.4375%;height:100%}
-.data>.data-content>.con-left>.left-top-bottom{width:100%;height:calc(20% - 3.5px)}
-.data>.data-content>.con-left>.left-top-bottom>.charts {margin:10px;}
-.data>.data-content>.con-left>.left-center{width:100%;height:calc(30% - 4px)}
-.data>.data-content .title {font-size:10px;text-align: center;}
-.info {display: flex;flex-direction:column;}
-.info>.row {flex:1;display: flex;}
-.info>.row>.item{flex:1; padding:5px 10px;}
-.info>.row>.item>span{color:white;}
-.info>.row>.item>span.span-title{color:white;font-size:10px;background-color:rgb(61,89,137);display:inline-block;padding:2px 5px;}
-.info>.row>.item>span.orange{background-color:rgb(218,103,84)}
-.stat {height:20px;}
+* {
+    font-family: "微软雅黑"
+}
 
-.con-center{width:53.125%;height:100%;padding:0 5px;box-sizing:border-box;position:relative}
-.con-center>.cent-top{width:100%;height:calc(60% - 5px);}
-.con-center>.cent-bottom{width:100%;height:40%}
-.con-center>.cent-bottom>.cent {width:calc(50% - 2.5px);height: 100%;}
+body {
+    background: #010e50 url(../images/map_bg.jpg) center top no-repeat;
+    background-size: 100% auto
+}
+
+.boxstyle {
+    border: 1px solid rgba(100, 162, 255, .2);
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 5px;
+    background: rgba(0, 35, 120, .36)
+}
+
+.boxstyle:after,
+.boxstyle:before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 30px
+}
+
+.boxstyle:before {
+    border-left: 1px solid #0258f0;
+    border-top: 1px solid #0258f0;
+    left: -1px;
+    top: -1px
+}
+
+.boxstyle:after {
+    border-right: 1px solid #0258f0;
+    border-bottom: 1px solid #0258f0;
+    right: -1px;
+    bottom: -1px
+}
+
+.title {
+    height: 35px;
+    font-size: 18px;
+    line-height: 35px;
+    width: 90%;
+    color: #fff;
+    font-weight: 600;
+    padding-left: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.title:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #0258f0;
+    left: 5%;
+    opacity: .4;
+    bottom: 0;
+}
+
+.data {
+    width: 100%;
+    height: 100%
+}
+
+.data>.data-title {
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box
+}
+
+.data>.data-title>.title-center {
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 80px;
+    letter-spacing: 4px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bolder;
+    box-sizing: border-box
+}
+
+.data>.data-content {
+    width: 100%;
+    height: calc(100% - 90px);
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box
+}
+
+.data>.data-content>.con-left {
+    width: 23.4375%;
+    height: 100%
+}
+
+.data>.data-content>.con-left>.left-top-bottom {
+    width: 100%;
+    height: calc(20% - 3.5px)
+}
+
+.data>.data-content>.con-left>.left-top-bottom>.charts {
+    margin: 10px;
+}
+
+.data>.data-content>.con-left>.left-center {
+    width: 100%;
+    height: calc(30% - 4px)
+}
+
+.data>.data-content .title {
+    font-size: 10px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info>.row {
+    flex: 1;
+    display: flex;
+}
+
+.info>.row>.item {
+    flex: 1;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.info>.row>.item>span {
+    color: white;
+    font-size: 10px;
+    display: inline-block;
+    
+}
+
+.info>.row>.item>span.span-title {
+    color: white;
+    background-color: rgb(61, 89, 137);
+    display: inline-block;
+    padding: 2px 5px;
+}
+
+.info>.row>.item>span.orange {
+    background-color: rgb(218, 103, 84)
+}
+
+.stat {
+    height: 20px;
+}
+
+.con-center {
+    width: 53.125%;
+    height: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    position: relative
+}
+
+.con-center>.cent-top {
+    width: 100%;
+    height: calc(60% - 5px);
+}
+
+.con-center>.cent-bottom {
+    width: 100%;
+    height: 40%
+}
+
+.con-center>.cent-bottom>.cent {
+    width: calc(50% - 2.5px);
+    height: 100%;
+}
+
 .mr-10 {
     margin-right: 5px;
 }
-.data>.data-content>.con-right{width:23.4375%;height:100%}
-.data>.data-content>.con-right>.right-top-bottom{width:100%;height:calc(14% - 2.5px)}
-.data>.data-content>.con-right>.right-center{width:100%;height:calc(24% - 5px)}
-.data>.data-content .charts{width:100%;height:calc(100% - 35px)}
+
+.data>.data-content>.con-right {
+    width: 23.4375%;
+    height: 100%
+}
+
+.data>.data-content>.con-right>.right-top-bottom {
+    width: 100%;
+    height: calc(14% - 2.5px)
+}
+
+.data>.data-content>.con-right>.right-center {
+    width: 100%;
+    height: calc(24% - 5px)
+}
+
+.data>.data-content .charts {
+    width: 100%;
+    height: calc(100% - 35px)
+}
+
 .charts table.grid {
-    font-size:10px;
-    
+    font-size: 10px;
+
     border-width: 1px;
     border-color: #666666;
     border-collapse: collapse;
 }
+
 .charts table th {
     border-width: 1px;
-    color:rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     padding: 4px;
     border-style: solid;
-    border-width:0;
-    border-color: rgba(255,255,255,0.2);
+    border-width: 0;
+    border-color: rgba(255, 255, 255, 0.2);
 }
-.charts table td{
+
+.charts table td {
     border-width: 1px;
     padding: 4px;
-    color:rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     border-style: solid;
     border-width: 0 1px 0 0;
-    border-color:rgba(255,255,255,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
-table td.level-high>span{
-    background-color:rgb(51,151,237);
+
+table td.level-high>span {
+    background-color: rgb(51, 151, 237);
 }
-table td>span{
-    display:inline-block;
-    padding:2px 4px;
+
+table td>span {
+    display: inline-block;
+    padding: 2px 4px;
     border-radius: 2px;
 }
+
 table td.level-low>span {
-    background-color:rgb(218,103,84);
+    background-color: rgb(218, 103, 84);
 }
+
 table td.level-middle>span {
-    background-color:rgb(113,193,159);
+    background-color: rgb(113, 193, 159);
 }
-.charts>div.col{
-    display:inline-block;
-    width:30%;
-    background-color: rgba(51,151,237,0.2);
+
+.charts>div.col {
+    display: inline-block;
+    width: 30%;
+    background-color: rgba(51, 151, 237, 0.2);
     text-align: center;
-    font-size:10px;
+    font-size: 10px;
     font-weight: bold;
     border-radius: 4px;
     padding: 5px;
 }
-.charts>div.col-3{
-    display:inline-block;
-    width:30%;
+
+.charts>div.col-3 {
+    display: inline-block;
+    width: 30%;
     /* background-color: rgba(51,151,237,0.2); */
     text-align: center;
-    font-size:10px;
-    padding:2px;
-    color:white;
+    font-size: 10px;
+    padding: 2px;
+    color: white;
 }
-.charts>div.col-3 span{
+
+.charts>div.col-3 span {
     display: block;
-    color:white;
-    font-size:18px;
+    color: white;
+    font-size: 18px;
     font-weight: bold;
-} 
+}
+
 .charts>div.col span {
     display: block;
-    color:white;
-    font-size:15px;
+    color: white;
+    font-size: 15px;
     font-weight: bold;
 }
+
 .total {
-    color: rgb(51,151,237);
+    color: rgb(51, 151, 237);
 }
-.chuli{
-    color:rgb(218,103,84)
+
+.chuli {
+    color: rgb(218, 103, 84)
 }
-.daichuli{
-    color:rgb(113,193,159)
+
+.daichuli {
+    color: rgb(113, 193, 159)
 }
-.charts>div.col-2{
+
+.charts>div.col-2 {
     display: inline-block;
-    width:45%;
-    
-    margin:2px auto;
+    width: 45%;
+
+    margin: 2px auto;
 }
+
 .charts>div.col-2 span {
-    display:inline-block;
-    color:white;
-    margin-right:15px;
-    font-size:8px;
+    display: inline-block;
+    color: white;
+    margin-right: 15px;
+    font-size: 8px;
 }
+
 .charts>div.col-2 span>strong {
     font-size: 20px;
     display: block;
 }
+
 .block {
-    padding:0px 20px;
+    padding: 0px 20px;
 }
-.loading{position:fixed; left:0; top:0; font-size:16px; z-index:100000000;width:100%; height:100%; background:#1a1a1c; text-align:center;}
-.loadbox{position:absolute; width:160px;height:150px; color: #324e93; left:50%; top:50%; margin-top:-100px; margin-left:-75px;}
-.loadbox img{ margin:10px auto; display:block; width:40px;}
 
-.cls {fill: #45a3e9}
-.cls-side {fill: #2563c6}
-.text {font-size: 0.5rem;fill: white;}
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    z-index: 100000000;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1c;
+    text-align: center;
+}
 
+.loadbox {
+    position: absolute;
+    width: 160px;
+    height: 150px;
+    color: #324e93;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -75px;
+}
+
+.loadbox img {
+    margin: 10px auto;
+    display: block;
+    width: 40px;
+}
+
+.cls {
+    fill: #45a3e9
+}
+
+.cls-side {
+    fill: #2563c6
+}
+
+.text {
+    font-size: 0.5rem;
+    fill: white;
+}
+
+/* .box-item {
+    display: inline-block;
+    width: 40px;
+    height: 60px;
+    background: url(../images/numbc.png) no-repeat center center;
+    background-size: 40% 40%;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.box-item span {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 10px;
+} */
