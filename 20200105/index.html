@@ -2,300 +2,500 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>全国公安警务保障智慧分析</title>
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/numberAnimate.js"></script>
-    <script>
-        $(window).load(function () {
-            $(".loading").fadeOut()
-        })
-    </script>
+  <meta charset="UTF-8">
+  <title>全国公安警务保障智慧分析</title>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/numberAnimate.js"></script>
+  <script>
+    $(window).load(function () {
+      $(".loading").fadeOut()
+    })
+  </script>
 
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/map.css">
-    <link rel="stylesheet" href="css/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="css/numberAnimate.css" />
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/numberAnimate.css" />
 </head>
 
 <body>
-    <div class="loading">
-        <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+  <div class="loading">
+    <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+  </div>
+  <div class="data">
+    <div class="data-title">
+      <div class="title-center">全国公安警务保障智慧分析</div>
     </div>
-    <div class="data">
-        <div class="data-title">
-            <div class="title-center">全国公安警务保障智慧分析</div>
+    <div class="data-content">
+      <div class="con-left fl">
+        <div class="left-top-bottom boxstyle">
+          <div class="title">全省队伍情况</div>
+          <div class="info">
+            <div class="row">
+              <div class="item">
+                <span class="span-title">民警</span>
+                <span id="num1"></span>
+              </div>
+              <div class="item">
+                <span class="span-title">协警</span>
+                <span id="num2">0</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <span class="span-title">聘员</span>
+                <span id="num3">0</span>
+              </div>
+              <div class="item">
+                <span class="span-title orange">警押比</span>
+                <span>1 ：15</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="data-content">
-            <div class="con-left fl">
-                <div class="left-top-bottom boxstyle">
-                    <div class="title">全省队伍情况</div>
-                    <div class="info">
-                        <div class="row">
-                            <div class="item">
-                                <span class="span-title">民警</span>
-                                <span id="num1"></span>
-                            </div>
-                            <div class="item">
-                                <span class="span-title">协警</span>
-                                <span id="num2">0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="item">
-                                <span class="span-title">聘员</span>
-                                <span id="num3">0</span>
-                            </div>
-                            <div class="item">
-                                <span class="span-title orange">警押比</span>
-                                <span>1 ：15</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="left-center boxstyle">
-                    <div class="title">全省设备情况</div>
-                    <div id="chart_1" class="charts"></div>
-                </div>
-                <div class="left-center boxstyle">
-                    <div class="title">突发事件类别分析</div>
-                    <div id="chart_2" class="charts"></div>
-                </div>
-                <div class="left-top-bottom boxstyle">
-                    <div class="title">单人滞留</div>
-                    <div class="charts">
-                      <div class="col boxstyle total">总数<span id="num4">100</span></div>
-                      <div class="col boxstyle chuli">处理数<span id="num5">10</span></div>
-                      <div class="col boxstyle daichuli">待处理<span id="num6" >25</spanid="num4"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="con-center fl">
-                <div class="cent-top boxstyle">
-                    <svg width="100%" height="100%" viewBox="0 0 243.64 226.97">
-                        <g class="group">
-                          <g id="pt01" class="module">
-                            <path class="cls-side"
-                              d="M235.35,66.27l-9.26,16.87c-22.8-16.51-50.27-23.22-75.2-21.91a109.47,109.47,0,0,0-17.17,2.25L143,46.61a109.47,109.47,0,0,1,17.17-2.25c24.94-1.31,52.4,5.4,75.2,21.91" />
-                            <polygon class="cls-side" points="142.97 46.61 133.72 63.47 113.33 17.29 122.59 0.42 142.97 46.61" />
-                            <path class="cls" id="path1"
-                              d="M122.59.42c41.82,3.12,85.29,23.68,112.76,65.84-22.8-16.51-50.27-23.22-75.2-21.91A109.47,109.47,0,0,0,143,46.61Z" />
-                            <text dy="20" dx="30" class="text">
-                              <textPath xlink:href="#path1">建筑工程</textPath>
-                            </text>
-                          </g>
-                          <g id="pt02" class="module">
-                            <path class="cls-side"
-                              d="M140.21,47.24,131,64.1c-11.7,2.84-22.24,7.64-30.65,14.16l9.26-16.87c8.42-6.52,18.95-11.32,30.65-14.16" />
-                            <polygon class="cls-side" points="109.56 61.4 100.3 78.26 45.2 28.88 54.46 12.01 109.56 61.4" />
-                            <path class="cls"
-                              d="M103.53.2a150.43,150.43,0,0,1,15.93,0l20.75,47C128.5,50.08,118,54.88,109.56,61.4L54.46,12A132.62,132.62,0,0,1,103.53.2Z" />
-                            <text dy="30" dx="85" class="text">
-                              交通物流
-                            </text>
-                          </g>
-                          <g id="pt03" class="module">
-                            <path class="cls-side"
-                              d="M13.2,54.15,3.94,71A67.78,67.78,0,0,1,8.47,60.85L17.73,44A67.78,67.78,0,0,0,13.2,54.15" />
-                            <path class="cls"
-                              d="M51.85,13.28l55.6,49.83A53.2,53.2,0,0,0,94.78,78.5L13.2,54.15A64.88,64.88,0,0,1,33,25.45,99.19,99.19,0,0,1,51.85,13.28Z" />
-                            <text dy="50" dx="45" class="text">
-                              进出口
-                            </text>
-                            <polygon class="cls-side" points="94.78 78.5 85.53 95.36 3.94 71.01 13.2 54.15 94.78 78.5" />
-                            <path class="cls-side"
-                              d="M107.45,63.11,98.19,80A53.36,53.36,0,0,0,85.75,95L95,78.09a53.36,53.36,0,0,1,12.45-15" />
-                          </g>
-                          <g id="pb05" class="module">
-                            <polygon class="cls-side" points="217.77 79.65 208.51 96.52 150.01 124.93 159.27 108.07 217.77 79.65" />
-                            <path class="cls-side"
-                              d="M128.14,84.54l-9.26,16.87a39.61,39.61,0,0,0-6.84-.24,38.51,38.51,0,0,0-16.3,4.6L105,88.9a38.51,38.51,0,0,1,16.3-4.6,39.61,39.61,0,0,1,6.84.24M130.16,84.83l-9.26,16.87c-.75-.15-1.52-.3-2.3-.42l9.26-16.87c.78.12,1.55.27,2.3.42 M139.84,87.83l-9.26,16.87a36.76,36.76,0,0,0-9.68-3l9.26-16.87a36.76,36.76,0,0,1,9.68,3 M159.27,108.07,150,124.93c-2.94-8.55-9.43-15.89-19.43-20.24l9.26-16.87c10,4.35,16.49,11.69,19.43,20.24" /> -->
-                            <path class="cls"
-                              d="M154.76,62c20.94-1.1,45.08,4.15,63,17.66l-58.5,28.41c-2.94-8.55-9.43-15.89-19.43-20.24a36.76,36.76,0,0,0-9.68-3c-.75-.15-1.52-.3-2.3-.42l.28.13a39.61,39.61,0,0,0-6.84-.24A38.51,38.51,0,0,0,105,88.9c3.09-7.63,9.86-14.17,18.15-18.83S142.5,62.64,154.76,62Z"/>
-                            <text dy="85" dx="150" class="text">
-                              新兴地产
-                            </text>
-                          </g>
-                          <g id="pb04" class="module">
-                            <path class="cls-side"
-                              d="M159.16,130.89l-9.26,16.87a36.43,36.43,0,0,0,1-20l9.26-16.87a36.43,36.43,0,0,1-1,20" />
-                            <polygon class="cls-side" points="242.31 144.58 233.05 161.45 149.9 147.75 159.16 130.89 242.31 144.58" />
-                            <path class="cls"
-                              d="M220.31,81.66a69.68,69.68,0,0,1,5.93,5.51c14.93,15.68,20.14,37.11,16.07,57.41l-83.15-13.7a36.43,36.43,0,0,0,1-20Z" />
-                            <text dy="120" dx="180" class="text">
-                              新兴矿化
-                            </text>
-                          </g>
-                          <g id="middle">
-                            <path
-                              d="M146.45,117.75l-9.26,16.87c-3,5.46-8.83,9.22-16.11,9.61-12,.63-23.28-8.11-25.29-19.52a18.43,18.43,0,0,1,1.89-12.18l9.26-16.87A18.43,18.43,0,0,0,105,107.84c2,11.41,13.33,20.15,25.29,19.52,7.27-.38,13.11-4.14,16.11-9.61"
-                              style="fill:#b13b09" />
-                            <path
-                              d="M123.06,86c11.95-.63,23.27,8.12,25.28,19.52s-6.05,21.16-18,21.79-23.28-8.11-25.29-19.52S111.1,86.67,123.06,86Z"
-                              style="fill:#e94a03" />
-                            <text dy="110" dx="118" class="text">
-                              集团
-                            </text>
-                          </g>
-                          <g id="pt04" class="module">
-                            <path class="cls-side"
-                              d="M21.37,116.4l-9.26,16.87C-.13,116-3,93.45,3.1,73.56l9.26-16.87c-6.11,19.89-3.23,42.43,9,59.7" />
-                            <path class="cls"
-                              d="M12.36,56.69,93.64,81a31.22,31.22,0,0,0-.9,18l-71.15,17.7-.23-.31C9.13,99.12,6.25,76.58,12.36,56.69Z" />
-                            <text dy="90" dx="25" class="text">
-                              新兴建设
-                            </text>
-                            <polygon class="cls-side" points="92.74 99.01 83.48 115.87 12.34 133.57 21.59 116.71 92.74 99.01" />
-                            <path class="cls-side" d="M21.59,116.71l-9.26,16.87-.23-.31,9.26-16.87.23.31" />
-                          </g>
-                          <g id="pt05" class="module">
-                            <path class="cls-side"
-                              d="M144,129.32l-9.26,16.87c-4.9,6.16-12.79,11.79-24,16.13a87.88,87.88,0,0,1-27.22,5.91A81.54,81.54,0,0,1,14.17,136l9.26-16.87a81.54,81.54,0,0,0,69.42,32.18,87.88,87.88,0,0,0,27.22-5.91c11.19-4.33,19.07-10,24-16.13" />
-                            <path class="cls"
-                              d="M93.5,101.75c3.22,10.18,11.3,20.2,25.69,25.54,1.76.65,3.62,1.23,5.57,1.74a47.39,47.39,0,0,0,12.76,1.18,38.1,38.1,0,0,0,6.51-.9c-4.9,6.16-12.79,11.79-24,16.13a87.88,87.88,0,0,1-27.22,5.91,81.54,81.54,0,0,1-69.42-32.18Z" />
-                            <text dy="130" dx="55" class="text">
-                              集团本级
-                            </text>
-                          </g>
-                          <g id="pb03" class="module">
-                            <path class="cls-side"
-                              d="M235,164.52l-9.26,16.87A71.54,71.54,0,0,1,216.92,194a78.47,78.47,0,0,1-18.67,15.24l9.26-16.87a78.47,78.47,0,0,0,18.67-15.24A71.54,71.54,0,0,0,235,164.52" />
-                            <path class="cls"
-                              d="M158.21,133.47l83.51,13.76a70.7,70.7,0,0,1-15.54,29.93A78.47,78.47,0,0,1,207.5,192.4L147.88,149A47.63,47.63,0,0,0,158.21,133.47Z" />
-                            <text dy="160" dx="170" class="text">
-                              新兴宾馆
-                            </text>
-                            <polygon class="cls-side" points="207.5 192.4 198.25 209.26 138.63 165.89 147.88 149.02 207.5 192.4" />
-                          </g>
-                          <g id="pb02" class="module">
-                            <path class="cls-side"
-                              d="M205,193.87l-9.26,16.87c-15.94,9-36.37,14.87-58.42,16q-2.64.14-5.31.19l9.26-16.87q2.67,0,5.31-.19c22-1.16,42.48-7,58.42-16" />
-                            <path class="cls"
-                              d="M145.93,150.89l59.07,43c-15.94,9-36.37,14.87-58.42,16q-2.64.14-5.31.19L116.7,164.5C129.11,161.31,139.52,156.47,145.93,150.89Z" />
-                            <text dy="190" dx="140" class="text">
-                              嵩海实业
-                            </text>
-                            <polygon class="cls-side" points="141.27 210.08 132.01 226.94 107.45 181.36 116.7 164.5 141.27 210.08" />
-                          </g>
-                          <g id="pb01" class="module">
-                            <path class="cls-side"
-                              d="M138.15,210.1,128.9,227c-41.63-.12-87.56-17.25-119.3-61.81l9.26-16.87C50.59,192.86,96.53,210,138.15,210.1" />
-                            <path class="cls"
-                              d="M18.85,148.29c8.82,4.53,14.63,7.62,20.53,10.52,16,7.84,34.68,10.4,52.23,9.48a129.72,129.72,0,0,0,22.32-3.12l24.22,44.93C96.53,210,50.59,192.86,18.85,148.29Z" />
-                            <text dy="190" dx="80" class="text">
-                              培训中心
-                            </text>
-                          </g>
-                        </g>
-                      </svg>
-                </div>
-                <div class="cent-bottom">
-                  <div class="cent fl boxstyle mr-10">
-                    <div class="title">总体风险</div>
-                    <div id="chart_6" class="charts"></div>
-                  </div>
-                  <div class="cent fr boxstyle">
-                    <div class="title">押解信息统计</div>
-                    <div class="charts">
-                      <table class="grid">
-                        <tr>
-                          <th>等级</th>
-                          <th>时间</th>
-                          <th>地点</th>
-                          <th>人物</th>
-                          <th>事件</th>
-                        </tr>
-                        <tr>
-                          <td class="level-high" ><span>高</span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                        <tr>
-                          <td class="level-low"><span>低</span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                        <tr>
-                          <td class="level-high"><span><span>高</span></span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                        <tr>
-                          <td class="level-middle"><span>中</span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                        <tr>
-                          <td class="level-low"><span>低</span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                        <tr>
-                          <td class="level-high"><span>高</span></td>
-                          <td>2018.05.20</td>
-                          <td>深圳</td>
-                          <td>1987-05-02</td>
-                          <td>押解xxx偏离路线</td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="con-right fr">
-                <div class="right-top-bottom boxstyle">
-                    <div class="title">重大案情</div>
-                    <div class="charts block">
-                      <div class="col-2">
-                          <span class="iconfont icon-zelvxingshianjian">
-                          </span>
-                          <span>总数<strong id="num7">100</strong></span>      
-                      </div>
-                      <div class="col-2">
-                        <span class="iconfont icon-yichuligongdanshu"></span>
-                        <span>处理数<strong id="num8">39</strong></span>
-                      </div>
-                    </div>
-                </div>
-                <div class="right-center boxstyle">
-                    <div class="title">全省关押情况</div>
-                    <div id="chart_3" class="charts" ></div>
-                </div>
-                <div class="right-center boxstyle">
-                    <div class="title">在押人员年龄结构图</div>
-                    <div id="chart_4" class="charts"></div>
-                </div>
-                <div class="right-center boxstyle">
-                    <div class="title">出所就医</div>
-                    <div id="chart_5" class="charts" ></div>
-                </div>
-                <div class="right-top-bottom boxstyle">
-                    <div class="title">深挖矿线</div>
-                    <div class="charts">
-                      <div class="col-3"><span id="num9">100</span>案件总数</div>
-                      <div class="col-3"><span id="num10">10</span>破案数</div>
-                      <div class="col-3"><span id="num11">25</span>待处理</div>
-                    </div>
-                </div>
-            </div>
+        <div class="left-center boxstyle">
+          <div class="title">全省设备情况</div>
+          <div id="chart_1" class="charts"></div>
         </div>
+        <div class="left-center boxstyle">
+          <div class="title">突发事件类别分析</div>
+          <div id="chart_2" class="charts"></div>
+        </div>
+        <div class="left-top-bottom boxstyle">
+          <div class="title">单人滞留</div>
+          <div class="charts">
+            <div class="col boxstyle total">总数<span id="num4">100</span></div>
+            <div class="col boxstyle chuli">处理数<span id="num5">10</span></div>
+            <div class="col boxstyle daichuli">待处理<span id="num6">25</spanid="num4">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="con-center fl">
+        <div class="cent-top boxstyle">
+          <svg width="100%" height="100%" viewBox="0 0 243.64 226.97">
+            <g class="group">
+              <g id="pt01" class="module">
+                <path class="cls-side"
+                  d="M235.35,66.27l-9.26,16.87c-22.8-16.51-50.27-23.22-75.2-21.91a109.47,109.47,0,0,0-17.17,2.25L143,46.61a109.47,109.47,0,0,1,17.17-2.25c24.94-1.31,52.4,5.4,75.2,21.91" />
+                <polygon class="cls-side" points="142.97 46.61 133.72 63.47 113.33 17.29 122.59 0.42 142.97 46.61" />
+                <path class="cls" id="path1"
+                  d="M122.59.42c41.82,3.12,85.29,23.68,112.76,65.84-22.8-16.51-50.27-23.22-75.2-21.91A109.47,109.47,0,0,0,143,46.61Z" />
+                <text dy="20" dx="30" class="text">
+                  <textPath xlink:href="#path1">建筑工程</textPath>
+                </text>
+              </g>
+              <g id="pt02" class="module">
+                <path class="cls-side"
+                  d="M140.21,47.24,131,64.1c-11.7,2.84-22.24,7.64-30.65,14.16l9.26-16.87c8.42-6.52,18.95-11.32,30.65-14.16" />
+                <polygon class="cls-side" points="109.56 61.4 100.3 78.26 45.2 28.88 54.46 12.01 109.56 61.4" />
+                <path class="cls"
+                  d="M103.53.2a150.43,150.43,0,0,1,15.93,0l20.75,47C128.5,50.08,118,54.88,109.56,61.4L54.46,12A132.62,132.62,0,0,1,103.53.2Z" />
+                <text dy="30" dx="85" class="text">
+                  交通物流
+                </text>
+              </g>
+              <g id="pt03" class="module">
+                <path class="cls-side"
+                  d="M13.2,54.15,3.94,71A67.78,67.78,0,0,1,8.47,60.85L17.73,44A67.78,67.78,0,0,0,13.2,54.15" />
+                <path class="cls"
+                  d="M51.85,13.28l55.6,49.83A53.2,53.2,0,0,0,94.78,78.5L13.2,54.15A64.88,64.88,0,0,1,33,25.45,99.19,99.19,0,0,1,51.85,13.28Z" />
+                <text dy="50" dx="45" class="text">
+                  进出口
+                </text>
+                <polygon class="cls-side" points="94.78 78.5 85.53 95.36 3.94 71.01 13.2 54.15 94.78 78.5" />
+                <path class="cls-side"
+                  d="M107.45,63.11,98.19,80A53.36,53.36,0,0,0,85.75,95L95,78.09a53.36,53.36,0,0,1,12.45-15" />
+              </g>
+              <g id="pb05" class="module">
+                <polygon class="cls-side" points="217.77 79.65 208.51 96.52 150.01 124.93 159.27 108.07 217.77 79.65" />
+                <path class="cls-side"
+                  d="M128.14,84.54l-9.26,16.87a39.61,39.61,0,0,0-6.84-.24,38.51,38.51,0,0,0-16.3,4.6L105,88.9a38.51,38.51,0,0,1,16.3-4.6,39.61,39.61,0,0,1,6.84.24M130.16,84.83l-9.26,16.87c-.75-.15-1.52-.3-2.3-.42l9.26-16.87c.78.12,1.55.27,2.3.42 M139.84,87.83l-9.26,16.87a36.76,36.76,0,0,0-9.68-3l9.26-16.87a36.76,36.76,0,0,1,9.68,3 M159.27,108.07,150,124.93c-2.94-8.55-9.43-15.89-19.43-20.24l9.26-16.87c10,4.35,16.49,11.69,19.43,20.24" />
+                -->
+                <path class="cls"
+                  d="M154.76,62c20.94-1.1,45.08,4.15,63,17.66l-58.5,28.41c-2.94-8.55-9.43-15.89-19.43-20.24a36.76,36.76,0,0,0-9.68-3c-.75-.15-1.52-.3-2.3-.42l.28.13a39.61,39.61,0,0,0-6.84-.24A38.51,38.51,0,0,0,105,88.9c3.09-7.63,9.86-14.17,18.15-18.83S142.5,62.64,154.76,62Z" />
+                <text dy="85" dx="150" class="text">
+                  新兴地产
+                </text>
+              </g>
+              <g id="pb04" class="module">
+                <path class="cls-side"
+                  d="M159.16,130.89l-9.26,16.87a36.43,36.43,0,0,0,1-20l9.26-16.87a36.43,36.43,0,0,1-1,20" />
+                <polygon class="cls-side"
+                  points="242.31 144.58 233.05 161.45 149.9 147.75 159.16 130.89 242.31 144.58" />
+                <path class="cls"
+                  d="M220.31,81.66a69.68,69.68,0,0,1,5.93,5.51c14.93,15.68,20.14,37.11,16.07,57.41l-83.15-13.7a36.43,36.43,0,0,0,1-20Z" />
+                <text dy="120" dx="180" class="text">
+                  新兴矿化
+                </text>
+              </g>
+              <g id="middle">
+                <path
+                  d="M146.45,117.75l-9.26,16.87c-3,5.46-8.83,9.22-16.11,9.61-12,.63-23.28-8.11-25.29-19.52a18.43,18.43,0,0,1,1.89-12.18l9.26-16.87A18.43,18.43,0,0,0,105,107.84c2,11.41,13.33,20.15,25.29,19.52,7.27-.38,13.11-4.14,16.11-9.61"
+                  style="fill:#b13b09" />
+                <path
+                  d="M123.06,86c11.95-.63,23.27,8.12,25.28,19.52s-6.05,21.16-18,21.79-23.28-8.11-25.29-19.52S111.1,86.67,123.06,86Z"
+                  style="fill:#e94a03" />
+                <text dy="110" dx="118" class="text">
+                  集团
+                </text>
+              </g>
+              <g id="pt04" class="module">
+                <path class="cls-side"
+                  d="M21.37,116.4l-9.26,16.87C-.13,116-3,93.45,3.1,73.56l9.26-16.87c-6.11,19.89-3.23,42.43,9,59.7" />
+                <path class="cls"
+                  d="M12.36,56.69,93.64,81a31.22,31.22,0,0,0-.9,18l-71.15,17.7-.23-.31C9.13,99.12,6.25,76.58,12.36,56.69Z" />
+                <text dy="90" dx="25" class="text">
+                  新兴建设
+                </text>
+                <polygon class="cls-side" points="92.74 99.01 83.48 115.87 12.34 133.57 21.59 116.71 92.74 99.01" />
+                <path class="cls-side" d="M21.59,116.71l-9.26,16.87-.23-.31,9.26-16.87.23.31" />
+              </g>
+              <g id="pt05" class="module">
+                <path class="cls-side"
+                  d="M144,129.32l-9.26,16.87c-4.9,6.16-12.79,11.79-24,16.13a87.88,87.88,0,0,1-27.22,5.91A81.54,81.54,0,0,1,14.17,136l9.26-16.87a81.54,81.54,0,0,0,69.42,32.18,87.88,87.88,0,0,0,27.22-5.91c11.19-4.33,19.07-10,24-16.13" />
+                <path class="cls"
+                  d="M93.5,101.75c3.22,10.18,11.3,20.2,25.69,25.54,1.76.65,3.62,1.23,5.57,1.74a47.39,47.39,0,0,0,12.76,1.18,38.1,38.1,0,0,0,6.51-.9c-4.9,6.16-12.79,11.79-24,16.13a87.88,87.88,0,0,1-27.22,5.91,81.54,81.54,0,0,1-69.42-32.18Z" />
+                <text dy="130" dx="55" class="text">
+                  集团本级
+                </text>
+              </g>
+              <g id="pb03" class="module">
+                <path class="cls-side"
+                  d="M235,164.52l-9.26,16.87A71.54,71.54,0,0,1,216.92,194a78.47,78.47,0,0,1-18.67,15.24l9.26-16.87a78.47,78.47,0,0,0,18.67-15.24A71.54,71.54,0,0,0,235,164.52" />
+                <path class="cls"
+                  d="M158.21,133.47l83.51,13.76a70.7,70.7,0,0,1-15.54,29.93A78.47,78.47,0,0,1,207.5,192.4L147.88,149A47.63,47.63,0,0,0,158.21,133.47Z" />
+                <text dy="160" dx="170" class="text">
+                  新兴宾馆
+                </text>
+                <polygon class="cls-side" points="207.5 192.4 198.25 209.26 138.63 165.89 147.88 149.02 207.5 192.4" />
+              </g>
+              <g id="pb02" class="module">
+                <path class="cls-side"
+                  d="M205,193.87l-9.26,16.87c-15.94,9-36.37,14.87-58.42,16q-2.64.14-5.31.19l9.26-16.87q2.67,0,5.31-.19c22-1.16,42.48-7,58.42-16" />
+                <path class="cls"
+                  d="M145.93,150.89l59.07,43c-15.94,9-36.37,14.87-58.42,16q-2.64.14-5.31.19L116.7,164.5C129.11,161.31,139.52,156.47,145.93,150.89Z" />
+                <text dy="190" dx="140" class="text">
+                  嵩海实业
+                </text>
+                <polygon class="cls-side"
+                  points="141.27 210.08 132.01 226.94 107.45 181.36 116.7 164.5 141.27 210.08" />
+              </g>
+              <g id="pb01" class="module">
+                <path class="cls-side"
+                  d="M138.15,210.1,128.9,227c-41.63-.12-87.56-17.25-119.3-61.81l9.26-16.87C50.59,192.86,96.53,210,138.15,210.1" />
+                <path class="cls"
+                  d="M18.85,148.29c8.82,4.53,14.63,7.62,20.53,10.52,16,7.84,34.68,10.4,52.23,9.48a129.72,129.72,0,0,0,22.32-3.12l24.22,44.93C96.53,210,50.59,192.86,18.85,148.29Z" />
+                <text dy="190" dx="80" class="text">
+                  培训中心
+                </text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="cent-bottom">
+          <div class="cent fl boxstyle">
+            <div class="title">总体风险</div>
+            <div id="chart_6" class="charts"></div>
+          </div>
+          <div class="cent fr boxstyle">
+            <div class="title">押解信息统计</div>
+            <div class="charts">
+              <!-- <table class="grid" id="tableId">
+                <thead>
+                  <tr>
+                    <th>等级</th>
+                    <th>时间</th>
+                    <th>地点</th>
+                    <th>人物</th>
+                    <th>事件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="level-high"><span>高</span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+                  <tr>
+                    <td class="level-low"><span>低</span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+                  <tr>
+                    <td class="level-high"><span><span>高</span></span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+                  <tr>
+                    <td class="level-middle"><span>中</span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+                  <tr>
+                    <td class="level-low"><span>低</span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+                  <tr>
+                    <td class="level-high"><span>高</span></td>
+                    <td>2018.05.20</td>
+                    <td>深圳</td>
+                    <td>1987-05-02</td>
+                    <td>押解xxx偏离路线</td>
+                  </tr>
+
+                </tbody>
+
+              </table> -->
+              <div class="tablebox">
+                <div class="tbl-header">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr>
+                        <th>等级</th>
+                        <th>时间</th>
+                        <th>地点</th>
+                        <th>人物</th>
+                        <th>事件</th>
+                      </tr>
+                    </thead>
+                    <tbody style="opacity:0;"></tbody>
+                  </table>
+                </div>
+                <div class="tbl-body">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr>
+                        <th>等级</th>
+                        <th>时间</th>
+                        <th>地点</th>
+                        <th>人物</th>
+                        <th>事件</th>
+                      </tr>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="con-right fr">
+        <div class="right-top-bottom boxstyle">
+          <div class="title">重大案情</div>
+          <div class="charts block">
+            <div class="col-2">
+              <span class="iconfont icon-zelvxingshianjian">
+              </span>
+              <span>总数<strong id="num7">100</strong></span>
+            </div>
+            <div class="col-2">
+              <span class="iconfont icon-yichuligongdanshu"></span>
+              <span>处理数<strong id="num8">39</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="right-center boxstyle">
+          <div class="title">全省关押情况</div>
+          <div id="chart_3" class="charts"></div>
+        </div>
+        <div class="right-center boxstyle">
+          <div class="title">在押人员年龄结构图</div>
+          <div id="chart_4" class="charts"></div>
+        </div>
+        <div class="right-center boxstyle">
+          <div class="title">出所就医</div>
+          <div id="chart_5" class="charts"></div>
+        </div>
+        <div class="right-top-bottom boxstyle">
+          <div class="title">深挖矿线</div>
+          <div class="charts">
+            <div class="col-3"><span id="num9">100</span>案件总数</div>
+            <div class="col-3"><span id="num10">10</span>破案数</div>
+            <div class="col-3"><span id="num11">25</span>待处理</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 
 <script src="js/echarts.min.js"></script>
 <script src="js/d3.v5.min.js"></script>
 <script src="js/chart.js"></script>
 <script>
-  
+  var MyMarhq = '';
+  clearInterval(MyMarhq);
+  $('.tbl-body tbody').empty();
+  $('.tbl-header tbody').empty();
+  var str = '';
+  var Items = [{
+      "ranking": "低",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "低",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "中",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "中",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "高",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "高",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "中",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "高",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "低",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "中",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "低",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "高",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "中",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "高",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    },
+    {
+      "ranking": "低",
+      "time": "2018-05-20",
+      "city": "深圳",
+      "people": "王小二",
+      "event": "押解XXX偏离路线"
+    }
+
+  ]
+  $.each(Items, function (i, item) {
+    var rankClass = 'level-middle'
+    if (item.ranking === "高") {
+      rankClass = 'level-high'
+    } else if (item.ranking === "低") {
+      rankClass = 'level-low'
+    } else {
+      rankClass = 'level-middle'
+    }
+    str = '<tr>' +
+      '<td><span class=' + rankClass + '>' + item.ranking + '</span></td>' +
+      '<td>' + item.time + '</td>' +
+      '<td>' + item.city + '</td>' +
+      '<td>' + item.people + '</td>' +
+      '<td>' + item.event + '</td>' +
+      '</tr>'
+    $('.tbl-body tbody').append(str);
+    $('.tbl-header tbody').append(str);
+  });
+
+  if (Items.length > 10) {
+    $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());
+    $('.tbl-body').css('top', '0');
+    var tblTop = 0;
+    var speedhq = 50; // 数值越大越慢
+    var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();
+
+    function Marqueehq() {
+      if (tblTop <= -outerHeight * Items.length) {
+        tblTop = 0;
+      } else {
+        tblTop -= 1;
+      }
+      $('.tbl-body').css('top', tblTop + 'px');
+    }
+
+    MyMarhq = setInterval(Marqueehq, speedhq);
+
+    // 鼠标移上去取消事件
+    $(".tbl-header tbody").hover(function () {
+      clearInterval(MyMarhq);
+    }, function () {
+      clearInterval(MyMarhq);
+      MyMarhq = setInterval(Marqueehq, speedhq);
+    })
+
+  }
 </script>
+
 </html>

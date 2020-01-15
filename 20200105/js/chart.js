@@ -714,6 +714,7 @@ d3.select("svg")
         // window.location.reload()
         drawChart();
     })
+
 var numRun1 = $("#num1").numberAnimate({
     num: '12345',
     speed: 2000,
@@ -739,11 +740,11 @@ setInterval(function () {
 
 var numRun3 = $("#num3").numberAnimate({
     num: '32154',
-    speed: 2000,
+    speed: 3000,
     symbol: ","
 });
 var nums3 = 32154;
 setInterval(function () {
     nums3 += 15;
     numRun3.resetData(nums3);
-}, 2800);
+}, 3800);
